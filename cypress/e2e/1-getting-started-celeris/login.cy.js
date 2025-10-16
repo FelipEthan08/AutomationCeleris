@@ -1,0 +1,50 @@
+describe('57775 Autenticación de Usuarios mediante Login', () => {
+    beforeEach(() => {
+        cy.visit('https://celerisawsqa.tps.net.co/auth/login')
+        cy.viewport(1920,1080)
+    })
+    it('CP1_Campos obligatorios pantalla inicial', () => {
+        cy.get('button[type="submit"]').contains('Ingresar').click()
+        cy.contains('p.text-red-500', 'El usuario es requerido y debe tener al menos 7 caracteres.')
+            .should('be.visible')
+        cy.contains('p.text-red-500', 'La contraseña es requerida y debe tener al menos 8 caracteres.')
+            .should('be.visible')
+        cy.reload()
+        cy.get('input[placeholder="Usuario"]').type('andres.quimbayo@thomasgreg.com')
+        cy.get('button[type="submit"]').contains('Ingresar').click()
+        cy.reload()
+        cy.get('input[placeholder="Contraseña"]').type('andres.quimbayo@thomasgreg.com')
+        cy.get('button[type="submit"]').contains('Ingresar').dblclick()
+
+    })
+    it('CP3_Login exitoso redirección home', ()=>{
+        cy.get('input[placeholder="Usuario"]').type('andres.quimbayo@thomasgreg.com')
+        cy.get('input[placeholder="Contraseña"]').type('Bogota.2025*')
+        cy.wait(1000)
+        cy.get('button[type="submit"]').contains('Ingresar').dblclick()
+        cy.get('.px-6.py-2').click()
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
+        cy.wait(2000)
+        cy.get('button[type="submit"]').contains('Ingresar').dblclick()
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
+    })
+    it('CP4_Login usuario inexistente o inactivo', ()=>{
+        cy.get('input[placeholder="Usuario"]').type('andres.quimbayo@thomasgreg.com')
+        cy.get('input[placeholder="Contraseña"]').type('Bogota.20250*')
+        cy.wait(2000)
+        cy.get('button[type="submit"]').click()
+        cy.contains('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph', 'Usuario y/o Contraseña incorrecta, por favor verifique la información')
+            .should('be.visible')
+    })
+    it('CP5_Validaciones del campo Contraseña', ()=>{
+        cy.get('input[placeholder="Usuario"]').type('andres.quimbayo@thomasgreg.com')
+        cy.get('input[placeholder="Contraseña"]').type('maria.sanchezcsanchezcsanchezcsanchezcsanchezc@thomasgreg.com')
+        cy.wait(1000)
+        cy.get('button[type="submit"]').click()
+        cy.reload()
+        cy.get('input[placeholder="Contraseña"]').type('maria.sanchezc@thomasgreg.com')
+        cy.get('.svg-inline--fa[data-icon="eye"]').click()
+        cy.get('input[placeholder="Contraseña"]').should('have.value','maria.sanchezc@thomasgreg.com')
+        cy.get('.svg-inline--fa[data-icon="eye-slash"]').click()
+    })
+})

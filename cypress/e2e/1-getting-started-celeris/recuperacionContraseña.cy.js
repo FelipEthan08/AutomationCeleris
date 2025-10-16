@@ -1,0 +1,33 @@
+describe('57788 Recuperación de Contraseña desde Login Web', () =>{
+    beforeEach( () => {
+        cy.visit('https://celerisawsqa.tps.net.co/auth/login')
+        cy.viewport(1920,1080)
+    })
+    it('CP1_Acceso a pantalla recuperación de contraseña', () => {
+        cy.get('.cursor-pointer.text-blue-700').click()
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/auth/send-recovery')
+    })
+    it('CP3_Correo obligatorio y validación existencia', () => {
+        cy.get('.cursor-pointer.text-blue-700').click()
+        cy.get('.block.w-full').click()
+        cy.get('button[type="submit"]').click({force: true})
+        cy.get('.text-red-500').should('contain.text','Este campo es requerido.')
+        cy.get('.block.w-full').type('asdasd@gmail.com')
+        cy.get('button[type="submit"]').click()
+        cy.get('.text-2xl').should('be.visible')
+        cy.reload()
+        cy.get('.block.w-full').type('andres.quimbayo@thomasgreg.com')
+        cy.get('button[type="submit"]').click()
+        cy.get('.text-2xl').should('contain.text','¡Correo de recuperación en camino!')
+    })
+    it('CP6_No hacer uso de la contraseña temporal', () => {
+        cy.get('.cursor-pointer.text-blue-700').click()
+        cy.get('.block.w-full').type('andres.quimbayo@thomasgreg.com')
+        cy.get('button[type="submit"]').click()
+        cy.get('.px-6.py-2').click()
+        cy.get('input[placeholder="Usuario"]').type('andres.quimbayo@thomasgreg.com')
+        cy.get('input[placeholder="Contraseña"]').type('Bogota.2025*')
+        cy.wait(1000)
+        cy.get('button[type="submit"]').click()
+    })
+})
