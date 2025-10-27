@@ -11,7 +11,7 @@ describe('58294 Modificación de etapa del proceso', ()=> {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
     })
-    it.only('CP2 Validar la acción al dar clic en el botón de edición en el modulo de Etapas del proceso', ()=>{
+    it('CP2 Validar la acción al dar clic en el botón de edición en el modulo de Etapas del proceso', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.ng-fa-icon.text-blue-500').first().click()
