@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "echo 'Starting app server...'",
+    "test": "cypress run",
     "runners": "cypress open"
   },
   "author": "Andres Quimbayo",

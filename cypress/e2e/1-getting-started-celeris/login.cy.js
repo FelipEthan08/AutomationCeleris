@@ -24,8 +24,8 @@ describe('57775 Autenticación de Usuarios mediante Login', () => {
             .should('be.visible')
     })
     it('CP3_Login exitoso redirección home', ()=> {
-        cy.get('input[placeholder="Usuario"]').type('1073253202')
-        cy.get('input[placeholder="Contraseña"]').type('Bogota.2026*')
+        cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
+        cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(4000)
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
@@ -54,8 +54,8 @@ describe('57775 Autenticación de Usuarios mediante Login', () => {
         cy.get('.svg-inline--fa[data-icon="eye-slash"]').click()
     })
     it('CP8_Seguridad en sesión', () => {
-        cy.get('input[placeholder="Usuario"]').type('1073253202')
-        cy.get('input[placeholder="Contraseña"]').type('Bogota.2026*')
+        cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
+        cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(4000)
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');

@@ -1,14 +1,14 @@
 describe('58291 Creación de etapa del proceso electoral', () => {
     beforeEach(() => {
-        cy.visit('https://celerisawsqa.tps.net.co/auth/login')
-        cy.viewport(1920, 1080)
+        cy.viewport(1920,1080)
+        cy.visit(Cypress.env('urlBase'))
+        cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
+        cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
+        cy.wait(2000)
+        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
     it('CP01 Visualización del formulario de creación de etapa', () => {
-        cy.get('input[placeholder="Usuario"]').type('1073253202')
-        cy.get('input[placeholder="Contraseña"]').type('Bogota.2026*')
-        cy.wait(4000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
-        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -16,11 +16,6 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.button.duration-300').contains('Guardar').should('be.visible');
     })
     it('CP02 Creación exitosa de una nueva etapa', () => {
-        cy.get('input[placeholder="Usuario"]').type('1073253202')
-        cy.get('input[placeholder="Contraseña"]').type('Bogota.2026*')
-        cy.wait(4000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
-        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -35,11 +30,6 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('El registro ha sido creado con exito').should('be.visible');
     })
     it('CP03 Validación de campos obligatorios y mensajes de validación', () => {
-        cy.get('input[placeholder="Usuario"]').type('1073253202')
-        cy.get('input[placeholder="Contraseña"]').type('Bogota.2026*')
-        cy.wait(4000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
-        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -62,11 +52,6 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.text-red-500.text-xs.italic.mt-1').contains(' Debe seleccionar al menos una opción. ').should('contain.text', ' Debe seleccionar al menos una opción. ')
     })
     it('CP04 Cancelación de la creación de etapa', ()=>{
-        cy.get('input[placeholder="Usuario"]').type('1073253202')
-        cy.get('input[placeholder="Contraseña"]').type('Bogota.2026*')
-        cy.wait(4000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
-        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -79,11 +64,6 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.transition-all.duration-300.flex.flex-row').contains('Cerrar').click()
     })
     it('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', ()=>{
-        cy.get('input[placeholder="Usuario"]').type('1073253202')
-        cy.get('input[placeholder="Contraseña"]').type('Bogota.2026*')
-        cy.wait(4000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
-        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
