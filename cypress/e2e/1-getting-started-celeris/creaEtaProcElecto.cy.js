@@ -1,6 +1,5 @@
 describe('58291 Creación de etapa del proceso electoral', () => {
     beforeEach(() => {
-        cy.viewport(1920,1080)
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))

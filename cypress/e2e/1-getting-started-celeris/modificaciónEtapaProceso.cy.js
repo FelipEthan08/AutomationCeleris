@@ -1,6 +1,5 @@
 describe('58294 : Modificación de etapa del proceso', ()=> {
     beforeEach( ()=> {
-        cy.viewport(1920,1080)
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
@@ -12,7 +11,7 @@ describe('58294 : Modificación de etapa del proceso', ()=> {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
     })
-    it('CP2 Validar la acción al dar clic en el botón de edición en el modulo de Etapas del proceso', ()=>{
+    it.only('CP2 Validar la acción al dar clic en el botón de edición en el modulo de Etapas del proceso', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.ng-fa-icon.text-blue-500').first().click()

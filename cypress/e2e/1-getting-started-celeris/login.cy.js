@@ -1,7 +1,6 @@
 describe('57775 Autenticación de Usuarios mediante Login', () => {
     beforeEach(() => {
         cy.visit('https://celerisawsqa.tps.net.co/auth/login')
-        cy.viewport(1920,1080)
     })
     it('CP1_Campos obligatorios pantalla inicial', () => {
         cy.get('button[type="submit"]').contains('Ingresar').click()

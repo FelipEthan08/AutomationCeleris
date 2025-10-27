@@ -1,7 +1,6 @@
 describe('57788 Recuperación de Contraseña desde Login Web', () =>{
     beforeEach( () => {
         cy.visit('https://celerisawsqa.tps.net.co/auth/login')
-        cy.viewport(1920,1080)
     })
     it('CP1_Acceso a pantalla recuperación de contraseña', () => {
         cy.get('.cursor-pointer.text-blue-700').click()
