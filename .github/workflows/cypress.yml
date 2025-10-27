@@ -1,34 +1,24 @@
 name: Cypress Tests
-
 on: [push]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
-    # Configuración para ejecutar en paralelo si lo deseas
     strategy:
       fail-fast: false
       matrix:
-        containers: [1] # Cambia a [1, 2] si quieres paralelizar
+        containers: [1] # Usa más si quieres paralelismo
 
     steps:
-      # 1️ Clonar el repositorio
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2️ Instalar dependencias del proyecto
-      - name: Install dependencies
-        run: npm ci
-
-      # 3️ Ejecutar las pruebas de Cypress y registrar en Cypress Cloud
       - name: Run Cypress tests (record to Cloud)
         uses: cypress-io/github-action@v6
         with:
-          start: npm start                # Inicia tu aplicación (ajústalo si usas otro comando)
-          wait-on: 'http://localhost:3000' # Espera a que el servidor esté disponible
-          record: true                     # Envía resultados a Cypress Cloud
-          parallel: true                   # Habilita ejecución paralela (usará la matrix)
+          record: true
+          parallel: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
