@@ -63,7 +63,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.contains('div', 'Delegado de puesto logístico / funcional').click()
         cy.get('.transition-all.duration-300.flex.flex-row').contains('Cerrar').click()
     })
-    it.only('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', ()=>{
+    it('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
