@@ -9,7 +9,6 @@ describe('Administrar Etapa del Proceso electoral - Consulta de etapa proceso el
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
     it('CP01 Acceso a la pantalla "Administrar Etapa del Proceso Electoral', () => {
-        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard');
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
     })
