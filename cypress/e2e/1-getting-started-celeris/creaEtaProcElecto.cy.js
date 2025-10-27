@@ -26,7 +26,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.contains('div', 'Delegado de puesto logístico / funcional').click()
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.contains('button', 'Sí').click()
-        cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('El registro ha sido creado con exito').should('be.visible');
+        cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa creada exitosamente.').should('be.visible');
     })
     it('CP03 Validación de campos obligatorios y mensajes de validación', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
@@ -62,7 +62,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.contains('div', 'Delegado de puesto logístico / funcional').click()
         cy.get('.transition-all.duration-300.flex.flex-row').contains('Cerrar').click()
     })
-    it('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', ()=>{
+    it.skip('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()

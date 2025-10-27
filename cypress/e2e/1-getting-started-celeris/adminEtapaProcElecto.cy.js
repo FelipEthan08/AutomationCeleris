@@ -51,10 +51,10 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
         cy.get('input[placeholder="Nombre etapa"]').type('Consulta')
         cy.contains('button', 'Consultar').click()
-        cy.get('.ng-fa-icon.text-blue-500').first().click()
+        cy.get('svg.fa-pen-to-square').click();
         cy.get('h2.text-lg.font-title.font-medium').should('be.visible').and('contain.text','Editar Etapa Del Proceso')
         cy.contains('button', 'Cancelar').click()
-        cy.get('.ng-fa-icon.text-red-500').first().click()
+        cy.get('svg.fa-trash').click();
         cy.get('p.text-sm.text-gray-500').should('be.visible').and('contain.text','¿Está seguro de que desea eliminar la etapa "Consulta 1"? Esta acción no se puede deshacer.')
 
     })
