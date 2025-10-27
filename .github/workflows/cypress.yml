@@ -4,11 +4,15 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: read
 
     strategy:
       fail-fast: false
       matrix:
-        containers: [1] # Usa más si quieres paralelismo
+        containers: [1]
 
     steps:
       - name: Checkout
