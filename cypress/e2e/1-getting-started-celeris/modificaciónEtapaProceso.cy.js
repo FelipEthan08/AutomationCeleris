@@ -1,4 +1,4 @@
-describe('58294 : Modificación de etapa del proceso', ()=> {
+describe('58294 Modificación de etapa del proceso', ()=> {
     beforeEach( ()=> {
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))

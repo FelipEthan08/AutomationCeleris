@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1761594543792' stop='1761594589084'>
+    <name>58291 Creación de etapa del proceso electoral</name>
+    <title>58291 Creación de etapa del proceso electoral</title>
+    <test-cases>
+        <test-case start='1761594543792' status='passed' stop='1761594554992'>
+            <name>CP01 Visualización del formulario de creación de etapa</name>
+            <title>CP01 Visualización del formulario de creación de etapa</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594555045' status='passed' stop='1761594562028'>
+            <name>CP02 Creación exitosa de una nueva etapa</name>
+            <title>CP02 Creación exitosa de una nueva etapa</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594562086' status='passed' stop='1761594571804'>
+            <name>CP03 Validación de campos obligatorios y mensajes de validación</name>
+            <title>CP03 Validación de campos obligatorios y mensajes de validación</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594571830' status='passed' stop='1761594578380'>
+            <name>CP04 Cancelación de la creación de etapa</name>
+            <title>CP04 Cancelación de la creación de etapa</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594578412' status='passed' stop='1761594589084'>
+            <name>CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)</name>
+            <title>CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

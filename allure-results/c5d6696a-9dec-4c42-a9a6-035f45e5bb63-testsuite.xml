@@ -1,0 +1,60 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1761594773497' stop='1761594913915'>
+    <name>58289 Administrar Etapa del Proceso electoral - Consulta de etapa proceso electoral</name>
+    <title>58289 Administrar Etapa del Proceso electoral - Consulta de etapa proceso electoral</title>
+    <test-cases>
+        <test-case start='1761594773499' status='passed' stop='1761594787739'>
+            <name>CP01 Acceso a la pantalla "Administrar Etapa del Proceso Electoral</name>
+            <title>CP01 Acceso a la pantalla "Administrar Etapa del Proceso Electoral</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594787775' status='passed' stop='1761594797794'>
+            <name>CP02 Visualización inicial de la grilla y sección de totales</name>
+            <title>CP02 Visualización inicial de la grilla y sección de totales</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594797827' status='failed' stop='1761594814857'>
+            <name>CP03 Validación Búsqueda de etapas (consultas exitosas, sin resultados y campo obligatorio)</name>
+            <title>CP03 Validación Búsqueda de etapas (consultas exitosas, sin resultados y campo obligatorio)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Timed out retrying after 4000ms: Expected to find element: `input[placeholder="Nombre etapa"]`, but never found it.</message>
+                <stack-trace>AssertionError: Timed out retrying after 4000ms: Expected to find element: `input[placeholder="Nombre etapa"]`, but never found it.
+                    at Context.eval (webpack://automationceleris/./cypress/e2e/1-getting-started-celeris/adminEtapaProcElecto.cy.js:30:11)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1761594814941' status='passed' stop='1761594825205'>
+            <name>CP04 Consulta exitosa con filtro aplicado</name>
+            <title>CP04 Consulta exitosa con filtro aplicado</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594825228' status='passed' stop='1761594891660'>
+            <name>CP05 Funcionalidad del botón Limpiar</name>
+            <title>CP05 Funcionalidad del botón Limpiar</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761594893554' status='passed' stop='1761594913915'>
+            <name>CP06 Acciones en la grilla, creación y log de auditoría</name>
+            <title>CP06 Acciones en la grilla, creación y log de auditoría</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

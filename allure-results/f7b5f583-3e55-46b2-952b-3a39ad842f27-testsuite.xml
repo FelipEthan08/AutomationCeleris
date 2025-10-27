@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1761595461356' stop='1761595506310'>
+    <name>57775 Autenticación de Usuarios mediante Login</name>
+    <title>57775 Autenticación de Usuarios mediante Login</title>
+    <test-cases>
+        <test-case start='1761595461356' status='passed' stop='1761595478443'>
+            <name>CP1_Campos obligatorios pantalla inicial</name>
+            <title>CP1_Campos obligatorios pantalla inicial</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595478460' status='passed' stop='1761595485220'>
+            <name>CP3_Login exitoso redirección home</name>
+            <title>CP3_Login exitoso redirección home</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595485240' status='passed' stop='1761595491435'>
+            <name>CP4_Login usuario inexistente o inactivo</name>
+            <title>CP4_Login usuario inexistente o inactivo</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595491456' status='passed' stop='1761595499344'>
+            <name>CP5_Validaciones del campo Contraseña</name>
+            <title>CP5_Validaciones del campo Contraseña</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595499364' status='passed' stop='1761595506310'>
+            <name>CP8_Seguridad en sesión</name>
+            <title>CP8_Seguridad en sesión</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,0 +1,55 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1761595359984' stop='1761595418950'>
+    <name>58289 Administrar Etapa del Proceso electoral - Consulta de etapa proceso electoral</name>
+    <title>58289 Administrar Etapa del Proceso electoral - Consulta de etapa proceso electoral</title>
+    <test-cases>
+        <test-case start='1761595359984' status='passed' stop='1761595373216'>
+            <name>CP01 Acceso a la pantalla "Administrar Etapa del Proceso Electoral</name>
+            <title>CP01 Acceso a la pantalla "Administrar Etapa del Proceso Electoral</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595373242' status='passed' stop='1761595381478'>
+            <name>CP02 Visualización inicial de la grilla y sección de totales</name>
+            <title>CP02 Visualización inicial de la grilla y sección de totales</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595381511' status='passed' stop='1761595392859'>
+            <name>CP03 Validación Búsqueda de etapas (consultas exitosas, sin resultados y campo obligatorio)</name>
+            <title>CP03 Validación Búsqueda de etapas (consultas exitosas, sin resultados y campo obligatorio)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595392884' status='passed' stop='1761595401551'>
+            <name>CP04 Consulta exitosa con filtro aplicado</name>
+            <title>CP04 Consulta exitosa con filtro aplicado</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595401594' status='passed' stop='1761595409945'>
+            <name>CP05 Funcionalidad del botón Limpiar</name>
+            <title>CP05 Funcionalidad del botón Limpiar</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1761595409977' status='passed' stop='1761595418950'>
+            <name>CP06 Acciones en la grilla, creación y log de auditoría</name>
+            <title>CP06 Acciones en la grilla, creación y log de auditoría</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
