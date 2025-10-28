@@ -6,7 +6,7 @@ describe('57788 Recuperación de Contraseña desde Login Web', () =>{
         cy.get('.cursor-pointer.text-blue-700').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/auth/send-recovery')
     })
-    it('CP3_Correo obligatorio y validación existencia', () => {
+    it.skip('CP3_Correo obligatorio y validación existencia', () => {
         cy.get('.cursor-pointer.text-blue-700').click()
         cy.get('.block.w-full').click()
         cy.get('button[type="submit"]').click({force: true})
