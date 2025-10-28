@@ -3,7 +3,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
-        cy.wait(2000)
+        cy.wait(3000)
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
@@ -14,7 +14,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.text-lg.font-title.font-medium').should('have.text', 'Crear Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').should('be.visible');
     })
-    it('CP02 Creación exitosa de una nueva etapa', () => {
+    it.only('CP02 Creación exitosa de una nueva etapa', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()

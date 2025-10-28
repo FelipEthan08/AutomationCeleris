@@ -1,22 +1,25 @@
-const { defineConfig } = require("cypress");
-const allureWriter = require("@shelex/cypress-allure-plugin/writer");
+import { defineConfig } from "cypress";
+import { allureCypress } from "allure-cypress/reporter";
 
-module.exports = defineConfig({
+export default defineConfig({
     projectId: "s3u5ws",
+
     e2e: {
         setupNodeEvents(on, config) {
-            allureWriter(on, config);
-            return config;
+            return allureCypress(on, config, {
+                resultsDir: "allure-results",
+            });
         },
+
         experimentalRunAllSpecs: true,
     },
-    reporter: "mocha-allure-reporter",
-    reporterOptions: {
-        resultsDir: "allure-results",
-    },
+
+    screenshotsFolder: "cypress/screenshots",
     viewportWidth: 1920,
     viewportHeight: 1080,
-    defaultCommandTimeout : 10000,
+    defaultCommandTimeout: 20000,
+    screenshotOnRunFailure: false,
+
     env: {
         user: "1073253202",
         pass: "Bogota.2026*",

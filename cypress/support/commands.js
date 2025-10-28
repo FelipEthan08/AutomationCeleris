@@ -23,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// commands.js
+import * as allure from "allure-js-commons";
+import { ContentType } from "allure-js-commons";
+
+Cypress.Commands.add('adjuntarArchivoAllure', (nombre, ruta) => {
+    cy.then(() => {
+        allure.attachmentPath(nombre, ruta, {
+            contentType: ContentType.PNG,
+            fileExtension: "png"
+        });
+    });
+});
+
+
+
+

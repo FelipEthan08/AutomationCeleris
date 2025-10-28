@@ -15,7 +15,7 @@ describe('57788 Recuperación de Contraseña desde Login Web', () =>{
         cy.get('button[type="submit"]').click()
         cy.get('.text-2xl').should('be.visible')
         cy.reload()
-        cy.get('.block.w-full').type('yuly.leal@thomasgreg.com')
+        cy.get('.block.w-full').type('andresuimbayo@thomasgreg.com')
         cy.get('button[type="submit"]').click()
         cy.get('.text-2xl').should('contain.text','¡Correo de recuperación en camino!')
     })
