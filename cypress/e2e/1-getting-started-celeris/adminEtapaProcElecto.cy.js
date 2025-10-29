@@ -26,16 +26,15 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.screenshot('Administrar etapa', { capture: 'runner' });
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.contains('button', 'Consultar').click()
-        cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('aaaaaaaaaa')
-        cy.screenshot('Consulta', { capture: 'runner' });
+        cy.get('input[placeholder="Nombre etapa"]').type('Nuevo')
         cy.contains('button', 'Consultar').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible')
+        cy.screenshot('Consulta', { capture: 'runner' });
         cy.reload()
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('Consulta')
+        cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
         cy.contains('button', 'Consultar').click()
+        cy.get('.py-2.px-4.border-b.border-gray-200.text-p-3.font-paragraph.text-black-txt').should('contain.text',' Prueba etapa y actividades ')
         cy.screenshot('Consulta', { capture: 'runner' });
 
     })

@@ -68,7 +68,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.contains('div', 'Delegado de puesto logístico / funcional').click()
         cy.get('.transition-all.duration-300.flex.flex-row').contains('Cerrar').click()
     })
-    it.skip('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', () => {
+    it.only('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -79,7 +79,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.contains('button', 'Sí').click()
         cy.get('.text-2xl.font-bold.text-center.mt-5.font-title').should('have.text', 'Ya existe una etapa con el mismo texto registrada')
-        cy.contains('button', 'Sí').click()
+        cy.contains('button', 'Confirmar').click()
         cy.contains('button', /^Cerrar$/).click({force: true})
         cy.get('.button.bg-linear-90').click()
         cy.get('input[placeholder="Bitácora"]').type('pruebaqa')
@@ -87,7 +87,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.contains('button', 'Sí').click()
         cy.get('.text-2xl.font-bold.text-center.mt-5.font-title').should('have.text', 'Ya existe una etapa con el mismo texto registrada')
-        cy.contains('button', 'Sí').click()
+        cy.contains('button', 'Confirmar').click()
         cy.contains('button', /^Cerrar$/).click({force: true})
         cy.get('.button.bg-linear-90').click()
         cy.get('input[placeholder="Bitácora"]').type('PRUEBAQA')
@@ -95,7 +95,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.contains('button', 'Sí').click()
         cy.get('.text-2xl.font-bold.text-center.mt-5.font-title').should('have.text', 'Ya existe una etapa con el mismo texto registrada')
-        cy.contains('button', 'Sí').click()
+        cy.contains('button', 'Confirmar').click()
         cy.contains('button', /^Cerrar$/).click({force: true})
     })
 })
