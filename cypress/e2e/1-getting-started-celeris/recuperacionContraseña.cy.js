@@ -6,7 +6,7 @@ describe('57788 Recuperación de Contraseña desde Login Web', () =>{
         cy.get('.cursor-pointer.text-blue-700').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/auth/send-recovery')
     })
-    it.skip('CP3_Correo obligatorio y validación existencia', () => {
+    it('CP3_Correo obligatorio y validación existencia', () => {
         cy.get('.cursor-pointer.text-blue-700').click()
         cy.get('.block.w-full').click()
         cy.get('button[type="submit"]').click({force: true})
@@ -15,7 +15,7 @@ describe('57788 Recuperación de Contraseña desde Login Web', () =>{
         cy.get('button[type="submit"]').click()
         cy.get('.text-2xl').should('be.visible')
         cy.reload()
-        cy.get('.block.w-full').type('andresuimbayo@thomasgreg.com')
+        cy.get('.block.w-full').type('COORDINADOR_ELECTORAL_tps@yopmail.com')
         cy.get('button[type="submit"]').click()
         cy.get('.text-2xl').should('contain.text','¡Correo de recuperación en camino!')
     })
