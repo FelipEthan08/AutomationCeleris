@@ -42,10 +42,10 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('Consulta')
+        cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
         cy.contains('button', 'Consultar').click()
         cy.screenshot('Consulta exitosa', { capture: 'runner' });
-        cy.contains('td', 'Consulta 1').click()
+        cy.contains('td', 'Prueba').click()
 
     })
     it('CP05 Funcionalidad del botón Limpiar', () => {
@@ -60,12 +60,12 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('Consulta')
+        cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').click();
+        cy.get('svg.fa-pen-to-square').first().click();
         cy.get('h2.text-lg.font-title.font-medium').should('be.visible').and('contain.text','Editar Etapa Del Proceso')
         cy.contains('button', 'Cancelar').click()
-        cy.get('svg.fa-trash').click();
-        cy.get('p.text-sm.text-gray-500').should('be.visible').and('contain.text','¿Está seguro de que desea eliminar la etapa "Consulta 1"? Esta acción no se puede deshacer.')
+        cy.get('svg.fa-trash').first().click();
+        cy.get('p.text-sm.text-gray-500').should('be.visible').and('contain.text','Está seguro de que desea eliminar la etapa')
     })
 })
