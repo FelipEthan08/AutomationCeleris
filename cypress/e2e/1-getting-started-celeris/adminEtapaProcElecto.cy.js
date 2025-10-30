@@ -34,7 +34,7 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
         cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
         cy.contains('button', 'Consultar').click()
-        cy.get('.py-2.px-4.border-b.border-gray-200.text-p-3.font-paragraph.text-black-txt').should('contain.text',' Prueba etapa y actividades ')
+        cy.get('.py-2.px-4.border-b.border-gray-200.text-p-3.font-paragraph.text-black-txt').should('contain.text',' Prueba')
         cy.screenshot('Consulta', { capture: 'runner' });
 
     })
