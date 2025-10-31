@@ -52,8 +52,9 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').should('contain.text', 'Debe seleccionar al menos una opción.')
-        cy.get('select').select('Activo').should('have.value', 'activo')
-        cy.get('select').select('Inactivo').should('have.value', 'inactivo')
+        cy.get('select').select('1').find('option:selected').should('contain.text', 'Activo')
+        cy.get('select').select('0').find('option:selected').should('contain.text', 'Inactivo')
+
     })
     it('CP8 Validar que no permita guardar si hay error en algún campo', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
@@ -74,7 +75,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('svg.fa-pen-to-square').first().click();
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la actualización de la etapa?')
+        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
     })
     it('CP11 Validar al dar clic en guardar los datos editados y se confirma SI', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
@@ -84,7 +85,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('svg.fa-pen-to-square').first().click();
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la actualización de la etapa?')
+        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa actualizada exitosamente.').should('be.visible');
     })
@@ -95,9 +96,9 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg.fa-pen-to-square').first().click();
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
-        cy.get('select').select('Inactivo').should('have.value', 'inactivo')
+        cy.get('select').select('0').find('option:selected').should('contain.text', 'Inactivo')
         cy.get('.button.duration-300').contains('Guardar').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la actualización de la etapa?')
+        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa actualizada exitosamente.').should('be.visible');
     })

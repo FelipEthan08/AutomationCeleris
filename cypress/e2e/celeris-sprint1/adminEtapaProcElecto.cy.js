@@ -34,9 +34,9 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.screenshot('Paso 3 Consulta', { capture: 'runner' });
         cy.reload()
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
+        cy.get('input[placeholder="Nombre etapa"]').type('A-otra vez bitacora de prueba')
         cy.contains('button', 'Consultar').click()
-        cy.contains('td', 'A6-prueba').should('contain.text', 'A6-prueba')
+        cy.contains('td', 'A-otra vez bitacora de prueba').should('contain.text', 'A-otra vez bitacora de prueba')
         cy.screenshot('Paso 4 Consulta', { capture: 'runner' });
 
     })
