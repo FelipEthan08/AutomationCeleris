@@ -1,11 +1,14 @@
 describe('58291 Creación de etapa del proceso electoral', () => {
     beforeEach(() => {
+        allure.epic("Sprint 1");
+        allure.feature("Creación de etapa del proceso electoral");
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(4000)
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
+
     })
     it('CP01 Visualización del formulario de creación de etapa', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()

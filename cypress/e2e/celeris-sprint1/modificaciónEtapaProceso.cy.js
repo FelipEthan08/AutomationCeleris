@@ -1,5 +1,7 @@
 describe('58294 Modificación de etapa del proceso', () => {
     beforeEach(() => {
+        allure.epic("Sprint 1");
+        allure.feature("Modificación de etapa del proceso");
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))

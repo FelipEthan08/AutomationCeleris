@@ -1,5 +1,7 @@
 describe('57788 Recuperación de Contraseña desde Login Web', () =>{
     beforeEach( () => {
+        allure.epic("Sprint 1");
+        allure.feature("Recuperación de Contraseña desde Login Web");
         cy.visit('https://celerisawsqa.tps.net.co/auth/login')
     })
     it('CP1_Acceso a pantalla recuperación de contraseña', () => {

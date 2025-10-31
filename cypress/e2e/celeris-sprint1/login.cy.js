@@ -1,5 +1,7 @@
 describe('57775 Autenticación de Usuarios mediante Login', () => {
     beforeEach(() => {
+        allure.epic("Sprint 1");
+        allure.feature("Autenticación de Usuarios mediante Login");
         cy.visit('https://celerisawsqa.tps.net.co/auth/login')
     })
     it('CP1_Campos obligatorios pantalla inicial', () => {

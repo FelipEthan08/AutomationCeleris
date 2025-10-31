@@ -1,5 +1,7 @@
-describe('58307 : Administrar Actividades - Consulta de Actividades ', () => {
+describe('58307 : Administrar Actividades - Consulta de Actividades', () => {
     beforeEach(() => {
+        allure.epic("Sprint 2");
+        allure.feature("Administrar Actividades - Consulta de Actividades");
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
