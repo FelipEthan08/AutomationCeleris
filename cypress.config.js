@@ -11,8 +11,8 @@ export default defineConfig({
             return config;
         },
         retries: {
-            runMode: 2,  // cuando se ejecuta en modo headless (GitHub Actions)
-            openMode: 1, // cuando se ejecuta en modo interactivo (local)
+            runMode: 4,
+            openMode: 1,
         },
 
         experimentalRunAllSpecs: true,
