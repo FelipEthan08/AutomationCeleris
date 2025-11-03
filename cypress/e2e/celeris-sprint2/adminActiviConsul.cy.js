@@ -47,7 +47,7 @@ describe('58307 : Administrar Actividades - Consulta de Actividades', () => {
         cy.get('select').first().should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción')
         cy.get('select').eq(1).should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción');
     })
-    it.only('CP6_Datos de la lista desplegable Actividades asociadas a la etapa', () => {
+    it('CP6_Datos de la lista desplegable Actividades asociadas a la etapa', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
