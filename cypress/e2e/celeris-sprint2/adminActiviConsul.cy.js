@@ -63,7 +63,7 @@ describe('58307 : Administrar Actividades - Consulta de Actividades', () => {
         cy.get('select').first().should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción')
         cy.get('select').first().select('Automatización')
         cy.get('select').eq(1).should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción');
-        cy.get('select').eq(1).select('Prueba autom')
+        cy.get('select').eq(1).select('Prueba automatizacion')
         cy.contains('button','Consultar').click()
         cy.wait(500)
         cy.contains('button','Limpiar').click()
