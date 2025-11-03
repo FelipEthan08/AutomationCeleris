@@ -16,4 +16,13 @@ describe('58309 : Creación de Actividad para una etapa', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900.h-full').click()
         cy.screenshot('Paso 2 Crear Actividad', { capture: 'runner' });
     })
+    it('CP02_Validar estructura panel izquierdo y pantalla principal', () => {
+        cy.get('.text-h2.text-lg.font-medium').should('be.visible')
+        cy.get('.relative.z-10.text-h-1.font-title.font-bold').should('be.visible')
+        cy.get('select').first().should('be.visible')
+        cy.get('select').eq(1).should('be.visible')
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').should('contain.text','Crear Actividad')
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-500.h-full').should('contain.text','Crear Sub Actividad')
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900.h-full').click()
+    })
 })
