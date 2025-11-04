@@ -91,7 +91,7 @@ describe('58307 : Administrar Actividades - Consulta de Actividades', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
-        cy.get('select').first().select('Pruebaqa12')
+        cy.get('select').first().select('Pruebaqa124')
         cy.contains('button','Consultar').click()
         cy.wait(500)
         cy.get('[role="cell"]').should('be.visible').and('contain.text','No se encontraron registros para los criterios seleccionados')
