@@ -34,9 +34,9 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.screenshot('Paso 3 Consulta', { capture: 'runner' });
         cy.reload()
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('A-otra vez bitacora de prueba')
+        cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
         cy.contains('button', 'Consultar').click()
-        cy.contains('td', 'A-otra vez bitacora de prueba').should('contain.text', 'A-otra vez bitacora de prueba')
+        cy.contains('td', 'Automatización etapa').should('contain.text', 'Automatización etapa')
         cy.screenshot('Paso 4 Consulta', { capture: 'runner' });
 
     })
@@ -44,17 +44,17 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
+        cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
         cy.contains('button', 'Consultar').click()
         cy.screenshot('Paso 2 Consulta exitosa', { capture: 'runner' });
-        cy.contains('td', 'Prueba').click()
+        cy.contains('td', 'Automatización etapa').click()
 
     })
     it('CP05 Funcionalidad del botón Limpiar', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('Consulta')
+        cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
         cy.contains('button', 'Limpiar').click()
         cy.screenshot('Paso 2 Limpiar', { capture: 'runner' });
     })
@@ -63,7 +63,7 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
-        cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
+        cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
         cy.contains('button', 'Consultar').click()
         cy.get('svg.fa-pen-to-square').first().click();
         cy.screenshot('Paso 3 Editar etapa', { capture: 'runner' });
