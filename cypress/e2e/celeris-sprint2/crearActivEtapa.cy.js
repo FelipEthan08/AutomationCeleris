@@ -28,8 +28,9 @@ describe('58309 : Creación de Actividad para una etapa', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').should('contain.text','Crear Actividad')
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-500.h-full').should('contain.text','Crear Sub Actividad')
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900.h-full').click()
+        cy.screenshot('Paso 2 Crear Actividad', { capture: 'runner' });
     })
-    it('CP03_Validar estructura del formulario de creación de actividad', () => {
+    it('CP03_Validar formulario de creación de actividad', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').click()
         cy.get('[placeholder="Texto"]').should('be.visible')
         cy.get('.block.w-full.cursor-pointer.text-sm.font-paragraph.text-normal').eq(2).should('be.visible');
@@ -46,6 +47,7 @@ describe('58309 : Creación de Actividad para una etapa', () => {
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(0).should('contain.text', 'Este campo es obligatorio')
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(1).should('contain.text', 'Debe seleccionar al menos una opción')
+        cy.screenshot('Paso 2 Crear Actividad', { capture: 'runner' });
         cy.get('input[placeholder="Texto"]').eq(0).clear().type('Automatizacion no tocar')
         cy.get('select').eq(2).select('Pruebaqa12')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
@@ -74,4 +76,5 @@ describe('58309 : Creación de Actividad para una etapa', () => {
         cy.get('button.bg-blue-btn').contains('Sí').click();
         cy.contains('p', 'Actividad creada exitosamente.').should('be.visible').and('have.text', 'Actividad creada exitosamente.');
     })
+
 })

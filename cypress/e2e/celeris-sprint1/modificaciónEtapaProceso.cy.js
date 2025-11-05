@@ -9,24 +9,24 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
-    it('CP1 Validar que al ingresar al modulo se visualice el botón de editar en la columna de acciones', () => {
+    it('CP1_Validar que al ingresar al modulo se visualice el botón de editar en la columna de acciones', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
     })
-    it('CP2 Validar la acción al dar clic en el botón de edición en el modulo de Etapas del proceso', () => {
+    it('CP2_Validar la acción al dar clic en el botón de edición en el modulo de Etapas del proceso', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click();
+        cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
     })
-    it('CP4 Validación de campos del formulario al editar registro de Etapas del proceso', () => {
+    it('CP4_Validación de campos del formulario al editar registro de Etapas del proceso', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click();
+        cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('input[placeholder="Bitácora"]').clear()
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').should('contain.text', 'Este campo es obligatorio')
@@ -45,7 +45,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.reload()
         cy.get('input[placeholder="Nombre etapa"]').type('Pruebaqa automatizacion no tocar')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click();
+        cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto funcional').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').should('be.visible')
@@ -56,33 +56,33 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('select').select('0').find('option:selected').should('contain.text', 'Inactivo')
 
     })
-    it('CP8 Validar que no permita guardar si hay error en algún campo', ()=>{
+    it('CP8_Validar que no permita guardar si hay error en algún campo', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').type('Pruebaqa automatizacion no tocar')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click();
+        cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').click()
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'Por favor, complete todos los campos requeridos.')
     })
-    it('CP10 Validar la modal al dar clic en guardar los datos editados', ()=>{
+    it('CP10_Validar la modal al dar clic en guardar los datos editados', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').type('Pruebaqa automatizacion no tocar')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click();
+        cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
     })
-    it('CP11 Validar al dar clic en guardar los datos editados y se confirma SI', ()=>{
+    it('CP11_Validar al dar clic en guardar los datos editados y se confirma SI', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').type('Prueba')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click();
+        cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
@@ -90,19 +90,18 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.contains('button', 'Confirmar').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa actualizada exitosamente.').should('be.visible');
     })
-    it('CP18 Validar inactivar registro de etapa del proceso', ()=>{
+    it('CP18_Validar inactivar registro de etapa del proceso', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').type('Automatizacion 0837')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click();
+        cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('select').select('0').find('option:selected').should('contain.text', 'Inactivo')
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
+        cy.contains('button', 'Confirmar').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa actualizada exitosamente.').should('be.visible');
     })
-
-
 })

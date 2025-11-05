@@ -10,14 +10,14 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
 
     })
-    it('CP01 Visualización del formulario de creación de etapa', () => {
+    it('CP01_Visualización del formulario de creación de etapa', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
         cy.get('.text-lg.font-title.font-medium').should('have.text', 'Crear Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').should('be.visible');
     })
-    it('CP02 Creación exitosa de una nueva etapa', () => {
+    it('CP02_Creación exitosa de una nueva etapa', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -34,7 +34,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
             cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa creada exitosamente.').should('be.visible');
         })
     })
-    it('CP03 Validación de campos obligatorios y mensajes de validación', () => {
+    it('CP03_Validación de campos obligatorios y mensajes de validación', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -59,7 +59,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
             cy.get('.text-red-500.text-xs.italic.mt-1').contains(' Debe seleccionar al menos una opción. ').should('contain.text', ' Debe seleccionar al menos una opción. ')
         })
     })
-    it('CP04 Cancelación de la creación de etapa', () => {
+    it('CP04_Cancelación de la creación de etapa', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
@@ -71,7 +71,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.contains('div', 'Delegado de puesto logístico / funcional').click()
         cy.get('.transition-all.duration-300.flex.flex-row').contains('Cerrar').click()
     })
-    it('CP05 Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', () => {
+    it('CP05_Visualización de etapas duplicadas. (Confirmar y Cancelar Duplicados)', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()

@@ -1,7 +1,7 @@
-describe('58309 : Creación de Actividad para una etapa', () => {
+describe('58378 : Creación de sub - actividad para una actividad', () => {
     beforeEach(() => {
         allure.epic("Sprint 2");
-        allure.feature("Creación de Actividad para una etapa");
+        allure.feature("Creación de Sub-Actividad para una etapa");
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
@@ -12,11 +12,11 @@ describe('58309 : Creación de Actividad para una etapa', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
-    it('CP01 - Acceso a la pantalla', () => {
+    it('CP01_Acceso a la pantalla', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-500').click()
         cy.screenshot('Paso 2 Crear Sub-Actividad', { capture: 'runner' });
     })
-    it('CP02 - Validar la estructura de la pantalla', () => {
+    it('CP02_Validar la estructura de la pantalla', () => {
         cy.get('.text-h2.text-lg.font-medium').should('be.visible')
         cy.get('.relative.z-10.text-h-1.font-title.font-bold').should('be.visible')
         cy.get('select').first().should('be.visible')
