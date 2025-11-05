@@ -38,5 +38,42 @@ describe('58378 : Creación de sub - actividad para una actividad', () => {
     it('CP03_Validar estructura del formulario de creación de actividad', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-500').click()
         cy.screenshot('Paso 2 Crear Sub-Actividad', { capture: 'runner' });
+        cy.get('select.block.w-full.cursor-pointer').eq(4).should('be.visible')
+        cy.get('select.block.w-full.cursor-pointer').eq(5).should('be.visible')
+        cy.get('input[placeholder="Texto"]').should('be.visible')
+        cy.get('.flex.transition-all.text-center.duration-300.ease-in-out.text-wrap.break-words.outline-1').should('be.visible')
+        cy.get('select.block.w-full.cursor-pointer.text-sm.font-paragraph.text-normal.appearance-none.py-2.px-3.pr-10.bg-white.rounded-full').last().should('be.visible')
+        cy.contains('button','Guardar').click({force:true})
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Por favor, complete todos los campos requeridos.')
+        cy.get('button.bg-blue-btn').contains('Cerrar').click();
+        cy.get('select.block.w-full.cursor-pointer').eq(4).should('be.visible').select('Automatización etapa')
+        cy.get('select.block.w-full.cursor-pointer').eq(5).should('be.visible').select('Etapa 3')
+        cy.get('input[placeholder="Texto"]').eq(1).type('Automatizacion sub actividad no tocar')
+        cy.get('button.bg-blue-btn.button.font-semibold').eq(2).click({ force: true });
+        cy.get('button.bg-blue-btn').contains('Sí').click()
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Ya existe una sub-actividad con este nombre en esta actividad.')
     })
+    it('CP04 - Validar los botones del formulario', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-500').click()
+        cy.screenshot('Paso 2 Crear Sub-Actividad', { capture: 'runner' });
+        cy.contains('button','Guardar').click({force:true})
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Por favor, complete todos los campos requeridos.')
+        cy.get('button.bg-blue-btn').contains('Cerrar').click();
+        cy.get('select.block.w-full.cursor-pointer').eq(4).should('be.visible').select('Automatización etapa')
+        cy.get('select.block.w-full.cursor-pointer').eq(5).should('be.visible').select('Etapa 3')
+        cy.get('input[placeholder="Texto"]').eq(1).type('Automatizacion sub actividad no tocar')
+        cy.get('button.bg-blue-btn.button.font-semibold').eq(2).click({ force: true });
+        cy.get('button.bg-transparent.border-blue-900').last().click({ force: true });
+        cy.get('button.bg-blue-btn.button.font-semibold').eq(2).click({ force: true });
+        cy.get('button.bg-blue-btn').contains('Sí').click()
+        cy.get('button.bg-blue-btn').contains('Cerrar').click();
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 1000)
+            const nameSubActividad = `${fixture.name1}${random}`
+            cy.get('input[placeholder="Texto"]').eq(1).clear().type(nameSubActividad)
+        })
+        cy.get('button.bg-blue-btn.button.font-semibold').eq(2).click({ force: true });
+        cy.get('button.bg-blue-btn').contains('Sí').click()
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Sub - actividad creada exitosamente.')
+    });
 })

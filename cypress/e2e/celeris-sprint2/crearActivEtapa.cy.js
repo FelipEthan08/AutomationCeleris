@@ -67,8 +67,8 @@ describe('58309 : Creación de Actividad para una etapa', () => {
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
         cy.fixture('crearEtapaPr').then((fixture) => {
             const random = Math.floor(Math.random() * 1000)
-            const nameEtapa = `${fixture.name1}${random}`
-            cy.get('input[placeholder="Texto"]').eq(0).type(nameEtapa)
+            const nameActividad = `${fixture.name1}${random}`
+            cy.get('input[placeholder="Texto"]').eq(0).type(nameActividad)
         })
         cy.get('select').eq(2).select('Pruebaqa12')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
