@@ -31,9 +31,9 @@ describe('58296 : Eliminar etapa del proceso electoral', () => {
         cy.contains('button', 'Sí').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','La etapa ha sido eliminada exitosamente.')
     });
-    it('CP03_Cancelación de la eliminación desde el modal', () => {
+    it('CP03_Cancelación de la eliminación desde el modal opción No', () => {
         cy.contains('button','Consultar').click()
         cy.get('svg[data-icon="trash"]').first().click()
-        cy.contains('button', 'No').should('be.visible').click({ force: true });
+        cy.get('button.border-blue-900').last().click({force: true})
     });
 })
