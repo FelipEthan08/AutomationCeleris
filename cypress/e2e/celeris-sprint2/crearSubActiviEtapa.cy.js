@@ -1,4 +1,4 @@
-describe('58378 : Creación de sub - actividad para una actividad', () => {
+describe('58378 Creación de sub - actividad para una actividad', () => {
     beforeEach(() => {
         allure.epic("Sprint 2");
         allure.feature("Creación de Sub-Actividad para una etapa");

@@ -1,4 +1,4 @@
-describe('58307 : Administrar Actividades - Consulta de Actividades', () => {
+describe('58307 Administrar Actividades - Consulta de Actividades', () => {
     beforeEach(() => {
         allure.epic("Sprint 2");
         allure.feature("Administrar Actividades - Consulta de Actividades");

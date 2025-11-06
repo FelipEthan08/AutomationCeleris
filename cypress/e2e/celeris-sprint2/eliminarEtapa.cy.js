@@ -1,4 +1,4 @@
-describe('58296 : Eliminar etapa del proceso electoral', () => {
+describe('58296 Eliminar etapa del proceso electoral', () => {
     beforeEach( ()=> {
         allure.epic("Sprint 2");
         allure.feature("Eliminar etapa del proceso electoral");

@@ -1,0 +1,7 @@
+{
+  "name": "Cypress Local Runner",
+  "reportName": "Automatización Celeris - QA Reporte",
+  "type": "cypress",
+  "executor": "Andrés Quimbayo",
+  "buildName": "AutomationCeleris - QA Execution"
+}

@@ -1,1 +1,1 @@
-[{"values":["QA"],"name":"Environment"},{"values":["https://celerisawsqa.tps.net.co"],"name":"application_url"},{"values":["Windows 10"],"name":"Platform"},{"values":["Cypress Local Runner"],"name":"Executor"},{"values":["Andrés Quimbayo"],"name":"User"}]
+[{"values":["QA"],"name":"Environment"},{"values":["Windows 11 Enterprise"],"name":"Platform"},{"values":["https://celerisawsqa.tps.net.co"],"name":"BaseURL"},{"values":["Cypress Local Runner"],"name":"Executor"},{"values":["Andrés Quimbayo"],"name":"User"}]

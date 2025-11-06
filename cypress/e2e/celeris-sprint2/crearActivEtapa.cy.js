@@ -1,4 +1,4 @@
-describe('58309 : Creación de Actividad para una etapa', () => {
+describe('58309 Creación de Actividad para una etapa', () => {
     beforeEach( ()=>{
         allure.epic("Sprint 2");
         allure.feature("Creación de Actividad para una etapa");
