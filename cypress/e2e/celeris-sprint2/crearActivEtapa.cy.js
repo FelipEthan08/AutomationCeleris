@@ -30,7 +30,7 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900.h-full').click()
         cy.screenshot('Paso 2 Crear Actividad', { capture: 'runner' });
     })
-    it.only('CP03_Validar formulario de creación de actividad', () => {
+    it('CP03_Validar formulario de creación de actividad', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').click()
         cy.get('[placeholder="Texto"]').should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(2).should('be.visible').should('have.text', 'Seleccione una opción')
@@ -59,7 +59,7 @@ describe('58309 Creación de Actividad para una etapa', () => {
     })
     it('CP04_Validar campo Estado y botones del formulario de creación', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').click()
-        cy.get('select').eq(3).find('option').should('contain.text','Activo')///SI
+        cy.contains('button', 'Activo').should('be.visible').and('have.class', 'cursor-not-allowed').and('have.class', 'text-gray-500');
         cy.contains('button','Guardar').should('be.visible')
         cy.contains('button','Cancelar').should('be.visible')
         cy.get('input[placeholder="Texto"]').eq(0).type('ABCDEFGHIJKLAAAMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEQ');
@@ -72,7 +72,9 @@ describe('58309 Creación de Actividad para una etapa', () => {
             const nameActividad = `${fixture.name1}${random}`
             cy.get('input[placeholder="Texto"]').eq(0).type(nameActividad)
         })
-        cy.get('select').eq(2).select('Pruebaqa12')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(2).click().should('be.visible').should('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').first().type('Pruebaqa12')
+        cy.get('ul li').contains('Pruebaqa12').should('be.visible').click({force: true});
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
         cy.contains('button','Guardar').click()
         cy.get('button.bg-blue-btn').contains('Sí').click();

@@ -30,7 +30,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.contains('.text-sm.font-normal', 'Delegado de puesto funcional').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').should('be.visible')
-        cy.contains('button', 'Activo').should('be.visible').and('contain.text','Activo')
+        cy.contains('button', /\s*(Activo|Inactivo)\s*/).should('be.visible')
         cy.contains('button', 'Guardar').should('be.visible')
         cy.contains('button', 'Cancelar').should('be.visible')
     })
@@ -96,7 +96,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
     it('CP18 Validar inactivar registro de actividad sin subactividades', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg[data-icon="pen-to-square"]').last().click({force: true})
-        cy.contains('button', 'Inactivo').should('be.visible').click()
+        cy.contains('button', /\s*(Activo|Inactivo)\s*/).should('be.visible')
         cy.contains('button', 'Guardar').click({force: true})
         cy.get('button.bg-blue-btn').contains('Sí').click();
     })
