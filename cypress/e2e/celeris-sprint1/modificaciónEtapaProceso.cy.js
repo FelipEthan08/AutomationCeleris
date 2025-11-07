@@ -52,9 +52,9 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').click()
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').should('contain.text', 'Debe seleccionar al menos una opción.')
-        cy.get('select').select('1').find('option:selected').should('contain.text', 'Activo')
-        cy.get('select').select('0').find('option:selected').should('contain.text', 'Inactivo')
-
+        cy.contains('button', 'Activo').should('be.visible').click()
+        cy.contains('Activo').should('be.visible')
+        cy.contains('Inactivo').should('be.visible')
     })
     it('CP8_Validar que no permita guardar si hay error en algún campo', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
@@ -85,7 +85,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
-        cy.get('select').select('0').find('option:selected').should('contain.text', 'Inactivo')
+        cy.contains('button', 'Inactivo').should('be.visible').and('have.class', 'text-gray-800')
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()

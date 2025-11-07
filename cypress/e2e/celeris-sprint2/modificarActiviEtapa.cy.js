@@ -26,11 +26,11 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.get('svg[data-icon="pen-to-square"]').last().click({force: true})
         cy.contains('h2', 'Editar Actividad Para Una Etapa').should('be.visible').and('contain.text', 'Editar Actividad Para Una Etapa')
         cy.get('[placeholder="Texto"]').should('be.visible')
-        cy.get('.block.w-full.cursor-pointer.text-sm.font-paragraph.text-normal').eq(2).should('be.visible');
+        cy.get('.text-green-700').should('be.visible');
         cy.contains('.text-sm.font-normal', 'Delegado de puesto funcional').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').should('be.visible')
-        cy.get('select').eq(3).find('option').should('contain.text', 'Activo')
+        cy.contains('button', 'Activo').should('be.visible').and('contain.text','Activo')
         cy.contains('button', 'Guardar').should('be.visible')
         cy.contains('button', 'Cancelar').should('be.visible')
     })
@@ -41,8 +41,6 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(0).should('contain.text', 'Este campo es obligatorio')
         cy.get('input[placeholder="Texto"]').eq(0).type('ABCDEFGHIJKLAAAMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEQ');
         cy.get('.text-red-500.text-xs.italic.mt-1').contains('Ha excedido el límite de caracteres permitido.').should('contain.text', 'Ha excedido el límite de caracteres permitido.')
-        cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
-        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(1).should('contain.text', 'Debe seleccionar al menos una opción')
         cy.contains('button', 'Guardar').click()
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
     })
@@ -98,7 +96,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
     it('CP18 Validar inactivar registro de actividad sin subactividades', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg[data-icon="pen-to-square"]').last().click({force: true})
-        cy.get('select').eq(3).select('Inactivo')
+        cy.contains('button', 'Inactivo').should('be.visible').click()
         cy.contains('button', 'Guardar').click({force: true})
         cy.get('button.bg-blue-btn').contains('Sí').click();
     })

@@ -44,26 +44,31 @@ describe('58307 Administrar Actividades - Consulta de Actividades', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
-        cy.get('select').first().should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción')
-        cy.get('select').eq(1).should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción');
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().should('be.visible').should('have.text', 'Seleccione una opción')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).should('be.visible').should('have.text', 'Seleccione una opción')
     })
     it('CP6_Datos de la lista desplegable Actividades asociadas a la etapa', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
-        cy.get('select').first().should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción')
-        cy.get('select').first().select('Automatización etapa')
-        cy.get('select').eq(1).should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción');
-        cy.get('select').eq(1).should('be.visible').contains('option','Automa actividad').should('have.text', 'Automa actividad');
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').first().type('Automatización etapa')
+        cy.get('ul li').contains('Automatización etapa').should('be.visible').click({force: true});
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').type('Automatizar actividad')
+        cy.get('ul li').contains('Automatizar actividad').should('be.visible').click({force: true});
+
     })
     it('CP7_Validar botón limpiar', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
-        cy.get('select').first().should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción')
-        cy.get('select').first().select('Automatización etapa')
-        cy.get('select').eq(1).should('be.visible').find('option:selected').should('have.text', 'Seleccione una opción');
-        cy.get('select').eq(1).select('Automa actividad')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').first().type('Automatización etapa')
+        cy.get('ul li').contains('Automatización etapa').should('be.visible').click({force: true});
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').type('Automatizar actividad')
+        cy.get('ul li').contains('Automatizar actividad').should('be.visible').click({force: true});
         cy.contains('button','Consultar').click()
         cy.wait(500)
         cy.contains('button','Limpiar').click()
@@ -75,14 +80,18 @@ describe('58307 Administrar Actividades - Consulta de Actividades', () => {
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
         cy.contains('button','Consultar').click()
         cy.wait(2000)
-        cy.contains('span', 'Automa actividad').should('be.visible')
+        cy.contains('span', 'Automatizar actividad').should('be.visible')
     })
     it('CP9_Validar consulta exitosa', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
-        cy.get('select').first().select('Automatización etapa')
-        cy.get('select').eq(1).select('Automa actividad')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').first().type('Automatización etapa')
+        cy.get('ul li').contains('Automatización etapa').should('be.visible').click({force: true});
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').type('Automatizar actividad')
+        cy.get('ul li').contains('Automatizar actividad').should('be.visible').click({force: true});
         cy.contains('button','Consultar').click()
         cy.wait(500)
         cy.contains('span', 'Automatización').should('be.visible')
@@ -91,7 +100,9 @@ describe('58307 Administrar Actividades - Consulta de Actividades', () => {
         cy.contains('Administrar Actividades para una Etapa').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
-        cy.get('select').first().select('Pruebaqa124')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').first().type('Pruebaqa')
+        cy.get('ul li').contains('Pruebaqa').should('be.visible').click({force: true});
         cy.contains('button','Consultar').click()
         cy.wait(500)
         cy.get('[role="cell"]').should('be.visible').and('contain.text','No se encontraron registros para los criterios seleccionados')
@@ -116,8 +127,12 @@ describe('58307 Administrar Actividades - Consulta de Actividades', () => {
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
         cy.contains('button','Consultar').click()
-        cy.get('select').first().select('Automatización etapa')
-        cy.get('select').eq(1).select('Automa actividad')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').first().type('Automatización etapa')
+        cy.get('ul li').contains('Automatización etapa').should('be.visible').click({force: true});
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).click().should('be.visible').and('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').type('Automatizar actividad')
+        cy.get('ul li').contains('Automatizar actividad').should('be.visible').click({force: true});
         cy.contains('button','Consultar').click()
     })
 })

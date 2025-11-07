@@ -47,7 +47,7 @@ describe('58378 Creación de sub - actividad para una actividad', () => {
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Por favor, complete todos los campos requeridos.')
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
         cy.get('select.block.w-full.cursor-pointer').eq(4).should('be.visible').select('Automatización etapa')
-        cy.get('select.block.w-full.cursor-pointer').eq(5).should('be.visible').select('Etapa 3')
+        cy.get('select.block.w-full.cursor-pointer').eq(5).should('be.visible').select('Automatizar actividad')
         cy.get('input[placeholder="Texto"]').eq(1).type('Automatizacion sub actividad no tocar')
         cy.get('button.bg-blue-btn.button.font-semibold').eq(2).click({ force: true });
         cy.get('button.bg-blue-btn').contains('Sí').click()
@@ -60,7 +60,7 @@ describe('58378 Creación de sub - actividad para una actividad', () => {
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Por favor, complete todos los campos requeridos.')
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
         cy.get('select.block.w-full.cursor-pointer').eq(4).should('be.visible').select('Automatización etapa')
-        cy.get('select.block.w-full.cursor-pointer').eq(5).should('be.visible').select('Etapa 3')
+        cy.get('select.block.w-full.cursor-pointer').eq(5).should('be.visible').select('Automatizar actividad')
         cy.get('input[placeholder="Texto"]').eq(1).type('Automatizacion sub actividad no tocar')
         cy.get('button.bg-blue-btn.button.font-semibold').eq(2).click({ force: true });
         cy.get('button.bg-transparent.border-blue-900').last().click({ force: true });

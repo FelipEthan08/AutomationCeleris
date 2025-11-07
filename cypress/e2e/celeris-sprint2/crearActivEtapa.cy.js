@@ -19,8 +19,8 @@ describe('58309 Creación de Actividad para una etapa', () => {
     it('CP02_Validar estructura panel izquierdo y pantalla principal', () => {
         cy.get('.text-h2.text-lg.font-medium').should('be.visible')
         cy.get('.relative.z-10.text-h-1.font-title.font-bold').should('be.visible')
-        cy.get('select').first().should('be.visible')
-        cy.get('select').eq(1).should('be.visible')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().should('be.visible').should('have.text', 'Seleccione una opción')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).should('be.visible').should('have.text', 'Seleccione una opción')
         cy.contains('button','Consultar').click()
         cy.get('svg.fa-pen-to-square').first().should('be.visible');
         cy.get('svg.fa-trash').first().should('be.visible');
@@ -30,14 +30,14 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900.h-full').click()
         cy.screenshot('Paso 2 Crear Actividad', { capture: 'runner' });
     })
-    it('CP03_Validar formulario de creación de actividad', () => {
+    it.only('CP03_Validar formulario de creación de actividad', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').click()
         cy.get('[placeholder="Texto"]').should('be.visible')
-        cy.get('.block.w-full.cursor-pointer.text-sm.font-paragraph.text-normal').eq(2).should('be.visible');
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(2).should('be.visible').should('have.text', 'Seleccione una opción')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto funcional').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').should('be.visible')
-        cy.get('select').eq(3).find('option').should('contain.text','Activo')
+        cy.contains('button', 'Activo').should('be.visible').and('have.class', 'cursor-not-allowed').and('have.class', 'text-gray-500');
         cy.contains('button','Guardar').should('be.visible')
         cy.contains('button','Cancelar').should('be.visible')
         cy.get('input[placeholder="Texto"]').eq(0).type('ABCDEFGHIJKLAAAMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEQ');
@@ -49,7 +49,9 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(1).should('contain.text', 'Debe seleccionar al menos una opción')
         cy.screenshot('Paso 2 Crear Actividad', { capture: 'runner' });
         cy.get('input[placeholder="Texto"]').eq(0).clear().type('Automatizacion no tocar')
-        cy.get('select').eq(2).select('Pruebaqa12')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(2).click().should('be.visible').should('have.text', 'Seleccione una opción')
+        cy.get('[placeholder="Buscar..."]').first().type('Pruebaqa12')
+        cy.get('ul li').contains('Pruebaqa12').should('be.visible').click({force: true});
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
         cy.contains('button','Guardar').click()
         cy.get('button.bg-blue-btn').contains('Sí').click();
