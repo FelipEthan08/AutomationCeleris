@@ -92,4 +92,157 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.get('.px-6.py-2.border.border-gray-300.text-gray-700').should('be.visible')
         cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible')
     });
+    it('CP10_Agregar opciones respuesta', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('select').eq(0).select('Automatizar etapa')
+        cy.get('select').eq(1).select('Automatizar actividad')
+        cy.get('select').last().select('Automatizacion sub actividad no tocar')
+        cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).type('Pruebas')
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(1).should('be.visible').click()
+        cy.get('.px-4.py-2.bg-blue-600.text-white.text-sm.font-medium.rounded-full').should('be.visible').click()
+        cy.get('[placeholder="Texto"]').last().should('be.visible').and('have.attr','maxlength',150)
+        cy.get('[type="checkbox"]').last().should('be.visible')
+        cy.get('.px-4.py-2.bg-white.border.border-blue-600.text-blue-600.text-sm.font-medium.rounded-full').last().should('be.visible')
+    });
+    it('CP11_Eliminar opción respuesta', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('select').eq(0).select('Automatizar etapa')
+        cy.get('select').eq(1).select('Automatizar actividad')
+        cy.get('select').last().select('Automatizacion sub actividad no tocar')
+        cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).type('Pruebas')
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(1).should('be.visible').click()
+        cy.get('.px-4.py-2.bg-blue-600.text-white.text-sm.font-medium.rounded-full').should('be.visible').click()
+        cy.get('.px-4.py-2.bg-white.border.border-blue-600.text-blue-600.text-sm.font-medium.rounded-full').last().should('be.visible').click()
+    });
+    it('CP12_Habilitar formulario dependencia', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('select').eq(0).select('Automatizar etapa')
+        cy.get('select').eq(1).select('Automatizar actividad')
+        cy.get('select').last().select('Automatizacion sub actividad no tocar')
+        cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).type('Pruebas')
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(1).should('be.visible').click()
+        cy.get('[type="checkbox"]').last().should('be.visible').click()
+        cy.get('[type="checkbox"]').eq(1).should('be.visible')
+        cy.get('[type="checkbox"]').eq(2).should('be.visible')
+        cy.get('[type="checkbox"]').eq(3).should('be.visible')
+        cy.get('[type="checkbox"]').eq(4).should('be.visible')
+    });
+    it('CP13_Validar campos obligatorios de formulario', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get("select").eq(0).should('be.visible')
+        cy.get("select").eq(1).should('be.visible')
+        cy.get('[inputmode="numeric"]').click()
+        cy.get('[inputmode="numeric"]').clear()
+        cy.get('[placeholder="Text"]').eq(1).should('be.visible')
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(0).should('be.visible')
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(1).should('be.visible')
+        cy.get('input[placeholder="Text"]').eq(2).should('have.value', 'Activa')
+        cy.get('.px-6.py-2.border.border-gray-300.text-gray-700').should('be.visible')
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible')
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
+        cy.get('div.text-red-500.text-sm.mt-1').should('have.length', 5)
+    });
+    it('CP14_Validar duplicidad pregunta', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('select').eq(0).select('Automatizar etapa')
+        cy.get('select').eq(1).select('Automatizar actividad')
+        cy.get('select').last().select('Automatizacion sub actividad no tocar')
+        cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).type('Pregunta automatizada no tocar')
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(0).should('be.visible').click()
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
+        cy.get('button.bg-blue-btn').contains('Sí').click();
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Ya existe una pregunta configurada con las mismas características para esta actividad y/o sub-actividad')
+        cy.get('button.bg-blue-btn').contains('Aceptar').click();
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(1).should('be.visible').click()
+        cy.get('[placeholder="Texto"]').last().should('be.visible').type('Pruebas')
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
+        cy.get('button.bg-blue-btn').contains('Sí').click();
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Ya existe una pregunta configurada con las mismas características para esta actividad y/o sub-actividad')
+    });
+    it('CP15_Validar mensajes de error longitud', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).should('have.attr', 'maxlength', '250')
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(1).click()
+        cy.get('[placeholder="Texto"]').last().should('be.visible').and('have.attr','maxlength',150)
+    });
+    it('CP16_Validar campo estado solo lectura', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('input[placeholder="Text"]').last().should('have.prop', 'readOnly', true)
+    });
+    it('CP17_Acción botón guardar confirmación', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('select').eq(0).select('Automatizar etapa')
+        cy.get('select').eq(1).select('Automatizar actividad')
+        cy.get('select').last().select('Automatizacion sub actividad no tocar')
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 100)
+            const ordenPregunta = `${fixture.orden}${random}`
+            cy.get('[inputmode="numeric"]').type(ordenPregunta)
+        })
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 10000)
+            const namePregunta = `${fixture.pregunta}${random}`
+            cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).type(namePregunta)
+        })
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(0).should('be.visible').click()
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la creación de la pregunta?')
+        cy.get('button.border-blue-900').last().click({force: true})
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la creación de la pregunta?')
+        cy.get('button.bg-blue-btn').contains('Sí').click();
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Pregunta creada exitosamente')
+    });
+    it('CP18_Cancelar creación pregunta', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('select').eq(0).select('Automatizar etapa')
+        cy.get('select').eq(1).select('Automatizar actividad')
+        cy.get('select').last().select('Automatizacion sub actividad no tocar')
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 100)
+            const ordenPregunta = `${fixture.orden}${random}`
+            cy.get('[inputmode="numeric"]').type(ordenPregunta)
+        })
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 10000)
+            const namePregunta = `${fixture.pregunta}${random}`
+            cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).type(namePregunta)
+        })
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(0).should('be.visible').click()
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la creación de la pregunta?')
+        cy.contains('button','Cerrar').click({force: true})
+        cy.get('.px-6.py-2.border.border-gray-300.text-gray-700').should('be.visible').click()
+    });
+    it('CP20_Visualizar pregunta creada formulario asignado', () => {
+        cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
+        cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
+        cy.get('select').eq(0).select('Automatizar etapa')
+        cy.get('select').eq(1).select('Automatizar actividad')
+        cy.get('select').last().select('Automatizacion sub actividad no tocar')
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 100)
+            const ordenPregunta = `${fixture.orden}${random}`
+            cy.get('[inputmode="numeric"]').type(ordenPregunta)
+        })
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 10000)
+            const namePregunta = `${fixture.pregunta}${random}`
+            cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).type(namePregunta)
+        })
+        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(0).should('be.visible').click()
+        cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la creación de la pregunta?')
+        cy.get('button.bg-blue-btn').contains('Sí').click();
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Pregunta creada exitosamente')
+    });
 })

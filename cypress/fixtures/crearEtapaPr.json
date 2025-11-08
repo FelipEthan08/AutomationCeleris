@@ -1,5 +1,7 @@
 {
   "name1": "PruebaQA",
   "name2": "Lorema Ispsum es simpleme el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias",
-  "etapa": "PruebaQA1"
+  "etapa": "PruebaQA1",
+  "pregunta" : "Pregunta prueba automatizada",
+  "orden" : "1"
 }
