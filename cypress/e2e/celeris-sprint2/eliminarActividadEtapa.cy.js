@@ -1,7 +1,7 @@
 describe('58311 : Eliminar actividad de una etapa', () => {
     beforeEach(() => {
         allure.epic("Sprint 2");
-        allure.feature("Modificación de Actividad por etapa");
+        allure.feature("Eliminar actividad de una etapa");
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
@@ -9,7 +9,7 @@ describe('58311 : Eliminar actividad de una etapa', () => {
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.screenshot('Paso 1 Login exitoso', {capture: 'runner'});
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
-        cy.contains('Administrar Actividades para una Etapa').click()
+        cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
     it('CP01_Eliminación exitosa de una actividad configurada en una etapa', () => {

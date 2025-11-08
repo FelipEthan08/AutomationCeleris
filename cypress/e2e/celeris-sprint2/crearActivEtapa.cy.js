@@ -9,7 +9,7 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.screenshot('Paso 1 Login exitoso', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
-        cy.contains('Administrar Actividades para una Etapa').click()
+        cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
     it('CP01_Validar acceso al formulario de creación', () => {
