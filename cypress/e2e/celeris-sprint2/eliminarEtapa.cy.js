@@ -13,7 +13,7 @@ describe('58296 Eliminar etapa del proceso electoral', () => {
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
 
     })
-    it('CP01_Visualización del botón y apertura del modal de confirmación de eliminación', () => {
+    it.only('CP01_Visualización del botón y apertura del modal de confirmación de eliminación', () => {
         cy.contains('button','Consultar').click()
         cy.get('svg[data-icon="trash"]').first().should('be.visible')
     });

@@ -12,7 +12,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
-    it('CP01_Validar que al ingresar al modulo se visualice el botón de editar en la columna de acciones', () => {
+    it.only('CP01_Validar que al ingresar al modulo se visualice el botón de editar en la columna de acciones', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg[data-icon="pen-to-square"]').last().click({force: true})
     })

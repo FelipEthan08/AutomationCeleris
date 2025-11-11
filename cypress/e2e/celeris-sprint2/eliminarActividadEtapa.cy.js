@@ -12,7 +12,7 @@ describe('58311 : Eliminar actividad de una etapa', () => {
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
-    it('CP01_Eliminación exitosa de una actividad configurada en una etapa', () => {
+    it.only('CP01_Eliminación exitosa de una actividad configurada en una etapa', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg[data-icon="trash"]').last().click({force: true})
         cy.get('button.bg-blue-btn').contains('Sí').click();

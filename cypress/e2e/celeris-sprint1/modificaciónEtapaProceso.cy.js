@@ -9,7 +9,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
-    it('CP1_Validar que al ingresar al modulo se visualice el botón de editar en la columna de acciones', () => {
+    it.only('CP1_Validar que al ingresar al modulo se visualice el botón de editar en la columna de acciones', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
     })

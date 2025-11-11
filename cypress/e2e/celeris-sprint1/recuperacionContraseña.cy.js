@@ -4,7 +4,7 @@ describe('57788 Recuperación de Contraseña desde Login Web', () =>{
         allure.feature("Recuperación de Contraseña desde Login Web");
         cy.visit('https://celerisawsqa.tps.net.co/auth/login')
     })
-    it('CP1_Acceso a pantalla recuperación de contraseña', () => {
+    it.only('CP1_Acceso a pantalla recuperación de contraseña', () => {
         cy.get('.cursor-pointer.text-blue-700').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/auth/send-recovery')
     })

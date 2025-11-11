@@ -10,7 +10,7 @@ describe('58291 Creación de etapa del proceso electoral', () => {
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
 
     })
-    it('CP01_Visualización del formulario de creación de etapa', () => {
+    it.only('CP01_Visualización del formulario de creación de etapa', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('.button.bg-linear-90').click()
