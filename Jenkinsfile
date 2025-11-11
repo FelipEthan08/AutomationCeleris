@@ -1,29 +1,36 @@
 pipeline {
-    agent any
+	agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/FelipEthan08/AutomationCeleris'
-            }
-        }
+	stages {
+		stage('Checkout') {
+			steps {
+				git branch: 'main', url: 'https://github.com/FelipEthan08/AutomationCeleris'
+			}
+		}
 
-        stage('Install dependencies') {
-            steps {
-                bat 'npm install'  // usa 'sh' en lugar de 'bat' si Jenkins corre en Linux
-            }
-        }
+		stage('Install dependencies') {
+			steps {
+				bat 'npm install'
+			}
+		}
 
-        stage('Run Cypress tests') {
-            steps {
-                bat 'npx cypress run'
-            }
-        }
-    }
+		stage('Install Cypress binary') {
+			steps {
+				// 👇 Este paso descarga e instala el binario en el entorno del usuario SYSTEM
+				bat 'npx cypress install'
+			}
+		}
 
-    post {
-        always {
-            archiveArtifacts artifacts: 'cypress/videos/**/*.*, cypress/screenshots/**/*.*', allowEmptyArchive: true
-        }
-    }
+		stage('Run Cypress tests') {
+			steps {
+				bat 'npx cypress run'
+			}
+		}
+	}
+
+	post {
+		always {
+			archiveArtifacts artifacts: 'cypress/reports/**/*.*', allowEmptyArchive: true
+		}
+	}
 }
