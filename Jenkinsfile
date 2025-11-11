@@ -20,19 +20,12 @@ pipeline {
 			}
 		}
 
-		stage('Install Cypress binary (if needed)') {
+		stage('Install Cypress binary') {
 			steps {
-				bat "set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE% && npx cypress install"
-			}
-		}
-
-		stage('Clean old results') {
-			steps {
-				// Limpia resultados anteriores para no mezclarlos
-				bat '''
-                if exist allure-results rmdir /s /q allure-results
-                if exist allure-report rmdir /s /q allure-report
-                '''
+				bat """
+                set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE%
+                npx cypress install
+                """
 			}
 		}
 
