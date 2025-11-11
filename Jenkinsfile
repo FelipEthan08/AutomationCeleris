@@ -33,10 +33,12 @@ pipeline {
 			}
 		}
 
-		stage('Generate Allure report') {
+		stage('Run Cypress tests') {
 			steps {
-				// Genera el reporte local (Allure CLI se ejecuta dentro del proyecto)
-				bat 'npx allure generate allure-results --clean -o allure-report'
+				bat """
+        set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE%
+        npx cypress run --browser chrome --headless --disable-gpu
+        """
 			}
 		}
 	}
