@@ -102,7 +102,6 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
-        cy.contains('button', 'Confirmar').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa actualizada exitosamente.').should('be.visible');
     })
 })
