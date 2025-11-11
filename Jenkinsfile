@@ -2,7 +2,6 @@ pipeline {
 	agent any
 
 	environment {
-		// Ruta para cachear dependencias y binario Cypress
 		NPM_CACHE = 'C:\\jenkins_cache\\npm'
 		CYPRESS_CACHE = 'C:\\jenkins_cache\\cypress'
 	}
@@ -27,25 +26,34 @@ pipeline {
 			}
 		}
 
-		stage('Run Cypress tests') {
+		stage('Clean old results') {
 			steps {
-				bat "set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE% && npx cypress run"
+				// Limpia resultados anteriores para no mezclarlos
+				bat '''
+                if exist allure-results rmdir /s /q allure-results
+                if exist allure-report rmdir /s /q allure-report
+                '''
 			}
 		}
 
 		stage('Run Cypress tests') {
 			steps {
 				bat """
-        set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE%
-        npx cypress run --browser chrome --headless --disable-gpu
-        """
+                set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE%
+                npx cypress run --browser chrome --headless --disable-gpu
+                """
+			}
+		}
+
+		stage('Generate Allure report') {
+			steps {
+				bat 'npx allure generate allure-results --clean -o allure-report'
 			}
 		}
 	}
 
 	post {
 		always {
-			// Publica el reporte en Jenkins
 			allure([
 				includeProperties: false,
 				jdk: '',
