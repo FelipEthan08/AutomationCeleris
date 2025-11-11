@@ -5,7 +5,7 @@
   "scripts": {
     "test": "rmdir /s /q allure-results 2>nul & npx cypress run",
     "cypress:chrome": "npx cypress run --browser chrome --headless",
-    "cypress:edge": "npx cypress run --browser edge --headless --no-sandbox --disable-dev-shm-usage",
+    "cypress:edge": "npx cypress run --browser edge --headless --config chromeWebSecurity=false --env CYPRESS_ARGS='--no-sandbox --disable-dev-shm-usage'",
     "cypress:firefox": "npx cypress run --browser firefox --headless",
     "runners": "cypress open",
     "report:allure": "if exist allure-report\\history xcopy allure-report\\history allure-results\\history /E /I /Y && allure generate allure-results --clean -o allure-report && allure open allure-report"
