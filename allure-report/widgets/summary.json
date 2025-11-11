@@ -1,1 +1,1 @@
-{"reportName":"Automatización Celeris - QA Reporte","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":60,"unknown":0,"total":60},"time":{"start":1762452868181,"stop":1762453456495,"duration":588314,"minDuration":1990,"maxDuration":16848,"sumDuration":534447}}
+{"reportName":"AllureReport","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":93,"unknown":0,"total":93},"time":{"start":1762875778203,"stop":1762886368611,"duration":10590408,"minDuration":1931,"maxDuration":19425,"sumDuration":1034474}}

@@ -1,1 +1,1 @@
-[{"name":"Cypress Local Runner","type":"cypress","buildName":"AutomationCeleris - QA Execution","reportName":"Automatización Celeris - QA Reporte"}]
+[{"name":"Jenkins","type":"jenkins","url":"http://localhost:8080/","buildOrder":1,"buildName":"CelerisAutomation #1","buildUrl":"http://localhost:8080/job/CelerisAutomation/1/","reportName":"AllureReport","reportUrl":"http://localhost:8080/job/CelerisAutomation/1/allure"}]
