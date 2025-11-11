@@ -40,7 +40,7 @@ pipeline {
 			steps {
 				bat """
                 set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE%
-                npx cypress run --browser chrome --headless --disable-gpu
+                npx cypress run --browser chrome --headless
                 """
 			}
 		}
