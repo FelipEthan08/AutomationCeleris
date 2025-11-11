@@ -10,7 +10,7 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
-    it.only('CP01_Acceso a la pantalla "Administrar Etapa del Proceso Electoral', () => {
+    it('CP01_Acceso a la pantalla "Administrar Etapa del Proceso Electoral', () => {
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');

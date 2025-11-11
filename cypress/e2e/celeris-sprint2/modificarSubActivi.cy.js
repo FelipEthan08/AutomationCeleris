@@ -12,7 +12,7 @@ describe('58379 : Modificación de sub - actividad para una actividad', () => {
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
-    it.only('CP1_Validar acceso desde el listado de sub-actividades',()=>{
+    it('CP1_Validar acceso desde el listado de sub-actividades',()=>{
         cy.contains('button','Consultar').click()
         cy.get('svg[data-icon=magnifying-glass]').first().should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')

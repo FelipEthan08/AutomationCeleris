@@ -12,7 +12,7 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.contains('Administrar Pregunta por Actividad').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-questions');
     })
-    it.only('CP01_Acceso formulario creación pregunta', () => {
+    it('CP01_Acceso formulario creación pregunta', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
     });
     it('CP02_Estructura visual formulario creación', () => {

@@ -12,7 +12,7 @@ describe('58378 Creación de sub - actividad para una actividad', () => {
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
-    it.only('CP01_Acceso a la pantalla', () => {
+    it('CP01_Acceso a la pantalla', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-500').click()
         cy.screenshot('Paso 2 Crear Sub-Actividad', { capture: 'runner' });
     })

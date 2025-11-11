@@ -4,7 +4,7 @@ describe('57775 Autenticación de Usuarios mediante Login', () => {
         allure.feature("Autenticación de Usuarios mediante Login");
         cy.visit('https://celerisawsqa.tps.net.co/auth/login')
     })
-    it.only('CP1_Campos obligatorios pantalla inicial', () => {
+    it('CP1_Campos obligatorios pantalla inicial', () => {
         cy.get('button[type="submit"]').contains('Ingresar').click()
         cy.contains('p.text-red-500', 'El usuario es requerido y debe tener al menos 7 caracteres.')
             .should('be.visible')

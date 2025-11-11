@@ -12,7 +12,7 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
-    it.only('CP01_Validar acceso al formulario de creación', () => {
+    it('CP01_Validar acceso al formulario de creación', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900.h-full').click()
         cy.screenshot('Paso 2 Crear Actividad', { capture: 'runner' });
     })

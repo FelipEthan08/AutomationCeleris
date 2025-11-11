@@ -10,7 +10,7 @@ describe('58307 Administrar Actividades - Consulta de Actividades', () => {
         cy.screenshot('Paso 1 Login exitoso', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
-    it.only('CP1_Acceso a la pantalla únicamente perfil superadministrador', () => {
+    it('CP1_Acceso a la pantalla únicamente perfil superadministrador', () => {
         cy.contains('Administrar Actividades').click()
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
