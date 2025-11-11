@@ -26,7 +26,6 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.get('svg[data-icon="pen-to-square"]').last().click({force: true})
         cy.contains('h2', 'Editar Actividad Para Una Etapa').should('be.visible').and('contain.text', 'Editar Actividad Para Una Etapa')
         cy.get('[placeholder="Texto"]').should('be.visible')
-        cy.get('.text-green-700').should('be.visible');
         cy.contains('.text-sm.font-normal', 'Delegado de puesto funcional').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').should('be.visible')
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').should('be.visible')

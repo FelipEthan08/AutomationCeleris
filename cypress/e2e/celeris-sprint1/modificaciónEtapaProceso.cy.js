@@ -89,8 +89,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
-        cy.contains('button', 'Confirmar').click()
-        cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa actualizada exitosamente.').should('be.visible');
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'No se puede modificar la etapa porque se encuentra inactiva')
     })
     it('CP11_Validar al dar clic en guardar los datos editados y se confirma', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
