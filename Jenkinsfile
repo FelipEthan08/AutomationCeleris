@@ -16,15 +16,13 @@ pipeline {
 
 		stage('Install dependencies') {
 			steps {
-				// Configura NPM para usar la carpeta cache
 				bat "npm config set cache %NPM_CACHE%"
-				bat 'npm ci' // instalación más limpia y rápida que npm install
+				bat 'npm ci'
 			}
 		}
 
 		stage('Install Cypress binary (if needed)') {
 			steps {
-				// Le decimos a Cypress dónde guardar el binario
 				bat "set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE% && npx cypress install"
 			}
 		}
@@ -33,6 +31,24 @@ pipeline {
 			steps {
 				bat "set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE% && npx cypress run"
 			}
+		}
+
+		stage('Generate Allure report') {
+			steps {
+				// Genera el reporte local (Allure CLI se ejecuta dentro del proyecto)
+				bat 'npx allure generate allure-results --clean -o allure-report'
+			}
+		}
+	}
+
+	post {
+		always {
+			// Publica el reporte en Jenkins
+			allure([
+				includeProperties: false,
+				jdk: '',
+				results: [[path: 'allure-results']]
+			])
 		}
 	}
 }
