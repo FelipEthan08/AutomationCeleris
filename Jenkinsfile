@@ -1,6 +1,12 @@
 pipeline {
 	agent any
 
+	environment {
+		// Ruta para cachear dependencias y binario Cypress
+		NPM_CACHE = 'C:\\jenkins_cache\\npm'
+		CYPRESS_CACHE = 'C:\\jenkins_cache\\cypress'
+	}
+
 	stages {
 		stage('Checkout') {
 			steps {
@@ -10,27 +16,23 @@ pipeline {
 
 		stage('Install dependencies') {
 			steps {
-				bat 'npm install'
+				// Configura NPM para usar la carpeta cache
+				bat "npm config set cache %NPM_CACHE%"
+				bat 'npm ci' // instalación más limpia y rápida que npm install
 			}
 		}
 
-		stage('Install Cypress binary') {
+		stage('Install Cypress binary (if needed)') {
 			steps {
-				// 👇 Este paso descarga e instala el binario en el entorno del usuario SYSTEM
-				bat 'npx cypress install'
+				// Le decimos a Cypress dónde guardar el binario
+				bat "set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE% && npx cypress install"
 			}
 		}
 
 		stage('Run Cypress tests') {
 			steps {
-				bat 'npx cypress run'
+				bat "set CYPRESS_CACHE_FOLDER=%CYPRESS_CACHE% && npx cypress run"
 			}
-		}
-	}
-
-	post {
-		always {
-			archiveArtifacts artifacts: 'cypress/reports/**/*.*', allowEmptyArchive: true
 		}
 	}
 }
