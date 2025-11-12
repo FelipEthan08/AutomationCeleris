@@ -19,7 +19,7 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
         cy.get('[id="file-input-JURADOS"]').should('exist')
     })
-    it.only('CP03 Cargue exitoso de archivo válido', () => {
+    it('CP03 Cargue exitoso de archivo válido', () => {
         cy.contains('Cargue de Archivo').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
         cy.contains('button', 'Aceptar').click({ force: true });
