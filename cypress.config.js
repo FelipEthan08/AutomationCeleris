@@ -1,5 +1,7 @@
 import { defineConfig } from "cypress";
 import allureWriter from "@shelex/cypress-allure-plugin/writer";
+import fs from "fs";
+import path from "path";
 
 export default defineConfig({
     projectId: "s3u5ws",
@@ -8,8 +10,19 @@ export default defineConfig({
         setupNodeEvents(on, config) {
             // Inicializa el escritor de resultados de Allure
             allureWriter(on, config);
+
+            // Task para crear un archivo dinámico
+            on("task", {
+                crearArchivo({ nombreArchivo, contenido }) {
+                    const filePath = path.join("cypress", "fixtures", nombreArchivo);
+                    fs.writeFileSync(filePath, contenido);
+                    return null; // siempre retornar algo
+                },
+            });
+
             return config;
         },
+
         retries: {
             runMode: 4,
             openMode: 1,

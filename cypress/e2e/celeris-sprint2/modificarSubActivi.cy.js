@@ -167,6 +167,22 @@ describe('58379 : Modificación de sub - actividad para una actividad', () => {
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full').last().should('be.visible').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la edición de la subactividad?')
         cy.get('button.bg-transparent.border-blue-900').last().should('be.visible').click({force: true});
-
+    })
+    it('CP12_Validar comportamiento botón Cancelar y botón Cerrar del form',()=>{
+        cy.contains('button','Consultar').click()
+        cy.get('svg[data-icon=magnifying-glass]').first().should('be.visible').click({force: true})
+        cy.contains('span','Nombre de la subactividad').should('be.visible')
+        cy.get('.fa-pen-to-square').last().click({force: true})
+        cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(3).should('be.visible').click()
+        cy.get('[placeholder="Buscar..."]').type('Automatizar etapa')
+        cy.contains('li','Automatizar etapa').click()
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(4).should('be.visible').click()
+        cy.get('[placeholder="Buscar..."]').type('Automatizar actividad')
+        cy.contains('li','Automatizar actividad').click()
+        cy.get('.flex.transition-all.text-center.duration-300.ease-in-out.text-wrap.break-words.outline-1').should('be.visible').and('contain.text',' Delegado de puesto logístico ')
+        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').clear()
+        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().type('Pruebaqa108')
+        cy.get('.bg-transparent.border.border-blue-900.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full').eq(2).should('be.visible').click()
     })
 })
