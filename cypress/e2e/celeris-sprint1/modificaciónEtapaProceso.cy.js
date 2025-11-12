@@ -81,7 +81,7 @@ describe('58294 Modificación de etapa del proceso', () => {
     it('CP18_Validar inactivar registro de etapa del proceso', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
-        cy.get('input[placeholder="Nombre etapa"]').type('Automatizacion 0837')
+        cy.get('input[placeholder="Nombre etapa"]').type('Pruebaqa724 no tocar')
         cy.contains('button', 'Consultar').click()
         cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
@@ -91,10 +91,9 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
-        cy.contains('button', 'Confirmar').click()
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold').last().click()
         cy.reload()
-        cy.get('input[placeholder="Nombre etapa"]').type('Automatizacion 0837')
+        cy.get('input[placeholder="Nombre etapa"]').type('Pruebaqa724 no tocar')
         cy.contains('button', 'Consultar').click()
         cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
@@ -104,7 +103,6 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
-        cy.contains('button', 'Confirmar').click()
     })
     it('CP11_Validar al dar clic en guardar los datos editados y se confirma', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
