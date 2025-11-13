@@ -85,7 +85,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
-        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').first().click()
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').last().click()
         cy.get('[placeholder="Buscar..."]').type('Inactivo')
         cy.contains('li','Inactivo').click()
         cy.get('.button.duration-300').contains('Guardar').click()
@@ -97,7 +97,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.contains('button', 'Consultar').click()
         cy.get('svg.fa-pen-to-square').first().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
-        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').first().click()
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').last().click()
         cy.get('[placeholder="Buscar..."]').type('Activo')
         cy.contains('li','Activo').click()
         cy.get('.button.duration-300').contains('Guardar').click()
