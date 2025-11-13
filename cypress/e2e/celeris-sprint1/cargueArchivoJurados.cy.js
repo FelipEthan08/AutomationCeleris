@@ -14,7 +14,7 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
         cy.contains('Cargue de Archivo').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
     })
-    it('CP02_X  Validación de la estructura visual de la pantalla', () => {
+    it('CP02_Validación de la estructura visual de la pantalla', () => {
         cy.contains('Cargue de Archivo').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
         cy.get('[id="file-input-JURADOS"]').should('exist')
