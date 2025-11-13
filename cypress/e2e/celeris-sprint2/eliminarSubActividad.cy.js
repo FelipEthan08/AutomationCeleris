@@ -1,7 +1,7 @@
 describe('58380 : Eliminar sub - actividad para una actividad', () => {
     beforeEach( ()=>{
-        allure.epic("Eliminar sub - actividad para una actividad")
-        allure.feature("Sprint 2")
+        allure.epic("Sprint 2")
+        allure.feature("Eliminar sub - actividad para una actividad")
         cy.visit(Cypress.env("urlBase"))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
