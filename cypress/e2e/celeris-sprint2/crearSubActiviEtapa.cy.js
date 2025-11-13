@@ -77,7 +77,7 @@ describe('58378 Creación de sub - actividad para una actividad', () => {
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
         cy.fixture('crearEtapaPr').then((fixture) => {
             const random = Math.floor(Math.random() * 1000)
-            const nameSubActividad = `${fixture.name1}${random}`
+            const nameSubActividad = `${fixture.subactividad}${random}`
             cy.get('input[placeholder="Texto"]').eq(1).clear().type(nameSubActividad)
         })
         cy.get('button.bg-blue-btn.button.font-semibold').eq(2).click({ force: true });

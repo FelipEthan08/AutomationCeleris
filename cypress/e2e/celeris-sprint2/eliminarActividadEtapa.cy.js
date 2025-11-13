@@ -14,6 +14,7 @@ describe('58311 : Eliminar actividad de una etapa', () => {
     })
     it('CP01_Eliminación exitosa de una actividad configurada en una etapa', () => {
         cy.contains('button', 'Consultar').click()
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.get('svg[data-icon="trash"]').last().click({force: true})
         cy.get('button.bg-blue-btn').contains('Sí').click();
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'La actividad ha sido eliminada exitosamente.')

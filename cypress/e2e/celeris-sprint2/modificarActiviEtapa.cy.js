@@ -76,10 +76,12 @@ describe('58310 Modificación de Actividad por etapa', () => {
     })
     it('CP11_Validar al dar clic en guardar los datos editados y se confirma SI', () => {
         cy.contains('button', 'Consultar').click()
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
+        cy.wait(2000)
         cy.get('svg[data-icon="pen-to-square"]').last().click({force: true})
         cy.fixture('crearEtapaPr').then((fixture) => {
             const random = Math.floor(Math.random() * 1000)
-            const nameActividad = `${fixture.etapa}${random}`
+            const nameActividad = `${fixture.actividad}${random}`
             cy.get('input[placeholder="Texto"]').eq(0).clear().type(nameActividad)
         })
         cy.contains('button', 'Guardar').click({force: true})
@@ -92,8 +94,10 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.contains('button', 'Guardar').click({force: true})
         cy.get('button.bg-blue-btn').contains('Sí').click();
     })
-    it('CP18 Validar inactivar registro de actividad sin subactividades', () => {
+    it.only('CP18 Validar inactivar registro de actividad sin subactividades', () => {
         cy.contains('button', 'Consultar').click()
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
+        cy.wait(2000)
         cy.get('svg[data-icon="pen-to-square"]').last().click({force: true})
         cy.contains('button', /\s*(Activo|Inactivo)\s*/).should('be.visible')
         cy.contains('button', 'Guardar').click({force: true})

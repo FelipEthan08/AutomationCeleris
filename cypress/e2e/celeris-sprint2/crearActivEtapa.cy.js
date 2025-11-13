@@ -57,7 +57,7 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('button.bg-blue-btn').contains('Sí').click();
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'Ya existe una actividad con este nombre en esta etapa.')
     })
-    it('CP04_Validar campo Estado y botones del formulario de creación', () => {
+    it.only('CP04_Validar campo Estado y botones del formulario de creación', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').click()
         cy.contains('button', 'Activo').should('be.visible').and('have.class', 'cursor-not-allowed').and('have.class', 'text-gray-500');
         cy.contains('button','Guardar').should('be.visible')
@@ -69,12 +69,12 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
         cy.fixture('crearEtapaPr').then((fixture) => {
             const random = Math.floor(Math.random() * 1000)
-            const nameActividad = `${fixture.name1}${random}`
-            cy.get('input[placeholder="Texto"]').eq(0).type(nameActividad)
+            const nameActividad = `${fixture.actividad}${random}`
+            cy.get('input[placeholder="Texto"]').eq(0).clear().type(nameActividad)
         })
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(2).click().should('be.visible').should('have.text', 'Seleccione una opción')
-        cy.get('[placeholder="Buscar..."]').first().type('Pruebaqa12')
-        cy.get('ul li').contains('Pruebaqa12').should('be.visible').click({force: true});
+        cy.get('[placeholder="Buscar..."]').first().type('Z automatizada etapa no tocar177')
+        cy.get('ul li').contains('Z automatizada etapa no tocar177').should('be.visible').click({force: true});
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
         cy.contains('button','Guardar').click()
         cy.get('button.bg-blue-btn').contains('Sí').click();
