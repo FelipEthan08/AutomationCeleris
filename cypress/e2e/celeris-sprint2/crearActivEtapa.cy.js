@@ -57,7 +57,7 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('button.bg-blue-btn').contains('Sí').click();
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'Ya existe una actividad con este nombre en esta etapa.')
     })
-    it.only('CP04_Validar campo Estado y botones del formulario de creación', () => {
+    it('CP04_Validar campo Estado y botones del formulario de creación', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').click()
         cy.contains('button', 'Activo').should('be.visible').and('have.class', 'cursor-not-allowed').and('have.class', 'text-gray-500');
         cy.contains('button','Guardar').should('be.visible')
