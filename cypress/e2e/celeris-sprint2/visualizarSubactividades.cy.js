@@ -1,0 +1,47 @@
+describe('62774 : Visualizar Subactividades asociadas a una Actividad', ()=>{
+    beforeEach(() => {
+        allure.feature('Cargue de Archivo de Agrupaciones Políticas')
+        allure.epic('Sprint 2')
+        cy.visit(Cypress.env('urlBase'))
+        cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
+        cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
+        cy.wait(4000)
+        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
+    })
+    it('CP01_Validar acceso a la pantalla Visualizar subactividades', () => {
+        cy.contains('Administrar Actividades').click()
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
+        cy.contains('button', 'Consultar').click()
+        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
+    })
+    it('CP02_Validar estructura de la pantalla Visualizar subactividades', () => {
+        cy.contains('Administrar Actividades').click()
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
+        cy.contains('button', 'Consultar').click()
+        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
+        cy.contains('span', 'Nombre de la subactividad').should('be.visible')
+        cy.get('.px-2.lg\\:px-5.py-5.pb-\\[21px\\].text-left.text-p-3.font-semibold.font-paragraph.text-gray-600').eq(6).should('be.visible')
+        cy.contains('span', 'Acciones').should('be.visible')
+    })
+    it('CP03_Validar información de la subactividad consultada', () => {
+        cy.contains('Administrar Actividades').click()
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
+        cy.contains('button', 'Consultar').click()
+        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
+        cy.contains('span', 'Nombre de la subactividad').should('be.visible')
+    })
+    it('CP05_Validar información de subactividades al editar o eliminar', () => {
+        cy.contains('Administrar Actividades').click()
+        cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
+        cy.contains('button', 'Consultar').click()
+        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
+        cy.contains('span', 'Nombre de la subactividad').should('be.visible')
+        cy.get('celeris-pencil-draw-outline-icon').should('be.visible')
+        cy.get('celeris-trash-outline-icon').should('be.visible')
+    })
+})
