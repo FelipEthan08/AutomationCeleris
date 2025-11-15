@@ -43,5 +43,5 @@ export default defineConfig({
         user: "1121212642",
         pass: "Bogota.2026*",
         urlBase: "https://celerisawsqa.tps.net.co/auth/login",
-    },
+    }
 });
