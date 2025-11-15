@@ -21,6 +21,8 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
     })
     it('CP03_Cargue exitoso de archivo válido', () => {
         cy.contains('Cargue de Archivo').click()
+        cy.wait(2000)
+        cy.contains('button','Jurados').click({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
         const nombres = ["MIGUEL", "CARMEN", "JUAN", "LAURA", "ANDRES", "ISABEL"];
         const apellidos = ["RAMIREZ", "MARTINEZ", "GOMEZ", "LOPEZ", "HERNANDEZ", "PEREZ"];
@@ -71,6 +73,8 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
     it('CP04_Intentar cargar archivo vacío', () => {
         cy.contains('Cargue de Archivo').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
+        cy.wait(2000)
+        cy.contains('button','Jurados').click({force: true})
         cy.wait(5000)
         cy.get('#file-input-JURADOS').selectFile('cypress/fixtures/archivoVacio.txt', {force: true});
         cy.get('.flex.items-center.space-x-3.text-red-600').should('be.visible').and('contain.text','Archivo vacío: no se procesará')
@@ -78,6 +82,8 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
     it('CP05_Rechazo por extensión incorrecta', () => {
         cy.contains('Cargue de Archivo').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
+        cy.wait(2000)
+        cy.contains('button','Jurados').click({force: true})
         cy.wait(3000)
         cy.get('#file-input-JURADOS').selectFile('cypress/fixtures/archivoPDF.pdf', {force: true});
         cy.get('.text-red-600.max-w-md.mx-auto.text-sm.font-medium.mb-2').should('be.visible').and('contain.text',' Archivo inválido. Asegúrese de subir un archivo .txt o .csv de hasta 5 MB de tamaño.')
@@ -85,6 +91,8 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
     it('CP06_Rechazo por tamaño mayor a 5MB', () => {
         cy.contains('Cargue de Archivo').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
+        cy.wait(2000)
+        cy.contains('button','Jurados').click({force: true})
         cy.wait(3000)
         cy.get('#file-input-JURADOS').selectFile('cypress/fixtures/archivo6MB.xlsx', {force: true});
         cy.get('.text-red-600.max-w-md.mx-auto.text-sm.font-medium.mb-2').should('be.visible').and('contain.text',' Archivo inválido. Asegúrese de subir un archivo .txt o .csv de hasta 5 MB de tamaño.')
@@ -92,6 +100,8 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
     it('CP07_Rechazo por estructura incorrecta', () => {
         cy.contains('Cargue de Archivo').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/basic-files/load-file');
+        cy.wait(2000)
+        cy.contains('button','Jurados').click({force: true})
         cy.wait(5000)
         cy.get('#file-input-JURADOS').selectFile('cypress/fixtures/CargaEstructuraMalformada.txt', {force: true});
         cy.get('.px-6.py-4.text-sm.text-slate-600.whitespace-normal.break-words.align-top').should('be.visible')
