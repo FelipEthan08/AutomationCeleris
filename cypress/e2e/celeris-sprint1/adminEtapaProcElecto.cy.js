@@ -65,11 +65,11 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
         cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
         cy.contains('button', 'Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().click({force: true});
+        cy.get('celeris-pencil-draw-outline-icon').first().click({force: true});
         cy.screenshot('Paso 3 Editar etapa', { capture: 'runner' });
         cy.get('h2.text-lg.font-title.font-medium').should('be.visible').and('contain.text','Editar Etapa Del Proceso')
         cy.contains('button', 'Cancelar').click()
-        cy.get('svg.fa-trash').first().click({force: true});
+        cy.get('celeris-trash-outline-icon').first().click({force: true});
         cy.screenshot('Paso 4 Mensaje de eliminación', { capture: 'runner' });
         cy.get('p.text-sm.text-gray-500').should('be.visible').and('contain.text','¿Está seguro de que desea eliminar esta etapa? Esta acción no se puede deshacer.')
     })

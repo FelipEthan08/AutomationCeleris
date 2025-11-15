@@ -26,8 +26,6 @@ describe('58291 Creación de etapa del proceso electoral', () => {
             const nameEtapa = `${fixture.name1}${random}`
             cy.get('input[placeholder="Bitácora"]').type(nameEtapa)
             cy.log('Nombre de etapa: ' + random)
-            cy.contains('div', 'Delegado de puesto logístico').click()
-            cy.contains('div', 'Delegado de puesto funcional').click()
             cy.contains('div', 'Delegado de puesto logístico / funcional').click()
             cy.get('.button.duration-300').contains('Guardar').click({force: true})
             cy.contains('button', 'Sí').click()

@@ -22,9 +22,9 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().should('be.visible').should('have.text', 'Seleccione una opción')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).should('be.visible').should('have.text', 'Seleccione una opción')
         cy.contains('button','Consultar').click()
-        cy.get('svg.fa-pen-to-square').first().should('be.visible');
-        cy.get('svg.fa-trash').first().should('be.visible');
-        cy.get('svg.fa-magnifying-glass').first().should('be.visible');
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible');
+        cy.get('celeris-trash-outline-icon').first().should('be.visible');
+        cy.get('celeris-search-outline-icon').first().should('be.visible');
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900').should('contain.text','Crear Actividad')
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-500.h-full').should('contain.text','Crear Sub Actividad')
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.from-primary-900.h-full').click()
