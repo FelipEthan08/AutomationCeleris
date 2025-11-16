@@ -1,6 +1,6 @@
 describe('62774 : Visualizar Subactividades asociadas a una Actividad', ()=>{
     beforeEach(() => {
-        allure.feature('Cargue de Archivo de Agrupaciones Políticas')
+        allure.feature('Visualizar Subactividades asociadas a una Actividad')
         allure.epic('Sprint 2')
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
