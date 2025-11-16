@@ -1,4 +1,4 @@
-describe('58380 : Eliminar sub - actividad para una actividad', () => {
+describe('58380 Eliminar sub - actividad para una actividad', () => {
     beforeEach( ()=>{
         allure.epic("Sprint 2")
         allure.feature("Eliminar sub - actividad para una actividad")

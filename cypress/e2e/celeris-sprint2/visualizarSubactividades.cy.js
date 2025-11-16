@@ -1,4 +1,4 @@
-describe('62774 : Visualizar Subactividades asociadas a una Actividad', ()=>{
+describe('62774 Visualizar Subactividades asociadas a una Actividad', ()=>{
     beforeEach(() => {
         allure.feature('Visualizar Subactividades asociadas a una Actividad')
         allure.epic('Sprint 2')

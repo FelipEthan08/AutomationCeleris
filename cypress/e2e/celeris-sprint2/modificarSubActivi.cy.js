@@ -1,4 +1,4 @@
-describe('58379 : Modificación de sub - actividad para una actividad', () => {
+describe('58379 Modificación de sub - actividad para una actividad', () => {
     beforeEach(() => {
         allure.epic("Sprint 2")
         allure.feature("Modificación de sub - actividad para una actividad")

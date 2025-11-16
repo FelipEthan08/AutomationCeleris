@@ -1,4 +1,4 @@
-describe('58311 : Eliminar actividad de una etapa', () => {
+describe('58311 Eliminar actividad de una etapa', () => {
     beforeEach(() => {
         allure.epic("Sprint 2");
         allure.feature("Eliminar actividad de una etapa");
