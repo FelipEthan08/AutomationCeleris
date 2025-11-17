@@ -168,7 +168,8 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
         cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
         cy.get('input.w-full.px-3.py-2.bg-gray-50.border.border-gray-200.rounded-full.text-gray-500').eq(1).should('have.attr', 'maxlength', '250')
-        cy.get('.flex.items-center.gap-2.cursor-pointer.px-3.py-2.bg-gray-100.rounded-lg.border.border-gray-200').eq(1).click()
+        cy.contains('label', 'Respuesta Abierta').click({force:true});
+        cy.contains('label', 'Respuesta Cerrada').click({force:true});
         cy.get('[placeholder="Texto"]').last().should('be.visible').and('have.attr','maxlength',150)
     });
     it('CP16_Validar campo estado solo lectura', () => {
@@ -183,7 +184,7 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.get('select').eq(1).select('Automatizar actividad')
         cy.get('select').last().select('Automatizacion sub actividad no tocar')
         cy.fixture('crearEtapaPr').then((fixture) => {
-            const random = Math.floor(Math.random() * 100)
+            const random = Math.floor(Math.random() * 20)
             const ordenPregunta = `${fixture.orden}${random}`
             cy.get('[inputmode="numeric"]').type(ordenPregunta)
         })

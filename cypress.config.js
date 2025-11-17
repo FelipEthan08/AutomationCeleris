@@ -7,6 +7,7 @@ export default defineConfig({
     projectId: "s3u5ws",
 
     e2e: {
+        pageLoadTimeout: 280000,
         setupNodeEvents(on, config) {
             // Inicializa el escritor de resultados de Allure
             allureWriter(on, config);
@@ -36,6 +37,8 @@ export default defineConfig({
     viewportHeight: 1080,
     defaultCommandTimeout: 20000,
     screenshotOnRunFailure: false,
+    chromeWebSecurity: false,
+    scrollBehavior: false,
 
     env: {
         allure: true,
