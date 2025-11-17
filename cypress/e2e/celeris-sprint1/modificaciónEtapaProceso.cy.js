@@ -111,7 +111,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
     })
-    it.only('CP11_Validar al dar clic en guardar los datos editados y se confirma', ()=>{
+    it('CP11_Validar al dar clic en guardar los datos editados y se confirma', ()=>{
         cy.contains('Administrar Etapa Proceso Electoral').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.contains('button', 'Consultar').click({force : true})
