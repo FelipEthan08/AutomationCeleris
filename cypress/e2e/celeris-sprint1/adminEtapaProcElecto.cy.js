@@ -29,7 +29,7 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
         cy.get('input[placeholder="Nombre etapa"]').type('Nuevo')
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible')
         cy.screenshot('Paso 3 Consulta', { capture: 'runner' });
         cy.reload()
@@ -45,7 +45,7 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
         cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.screenshot('Paso 2 Consulta exitosa', { capture: 'runner' });
         cy.contains('td', 'Automatización etapa').click()
 
@@ -55,7 +55,7 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-stages');
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
         cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
-        cy.contains('button', 'Limpiar').click()
+        cy.contains('button', 'Limpiar').click({force: true})
         cy.screenshot('Paso 2 Limpiar', { capture: 'runner' });
     })
     it('CP06_Acciones en la grilla, creación y log de auditoría', () => {
@@ -64,11 +64,11 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.get('input[placeholder="Nombre etapa"]').dblclick({force: true})
         cy.get('input[placeholder="Nombre etapa"]').type('Automatización etapa')
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('celeris-pencil-draw-outline-icon').first().click({force: true});
         cy.screenshot('Paso 3 Editar etapa', { capture: 'runner' });
         cy.get('h2.text-lg.font-title.font-medium').should('be.visible').and('contain.text','Editar Etapa Del Proceso')
-        cy.contains('button', 'Cancelar').click()
+        cy.contains('button', 'Cancelar').click({force: true})
         cy.get('celeris-trash-outline-icon').first().click({force: true});
         cy.screenshot('Paso 4 Mensaje de eliminación', { capture: 'runner' });
         cy.get('p.text-sm.text-gray-500').should('be.visible').and('contain.text','¿Está seguro de que desea eliminar esta etapa? Esta acción no se puede deshacer.')

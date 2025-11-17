@@ -21,7 +21,7 @@ describe('58378 Creación de sub - actividad para una actividad', () => {
         cy.get('.relative.z-10.text-h-1.font-title.font-bold').should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().should('be.visible').and('have.text', 'Seleccione una opción')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').eq(1).should('be.visible').and('have.text', 'Seleccione una opción')
-        cy.contains('button','Consultar').click()
+        cy.contains('button','Consultar').click({force: true})
         cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible');
         cy.get('celeris-trash-outline-icon').first().should('be.visible');
         cy.get('celeris-search-outline-icon').first().should('be.visible');

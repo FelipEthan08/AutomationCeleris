@@ -13,16 +13,16 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
     })
     it('CP01_Validar que al ingresar al modulo se visualice el botón de editar en la columna de acciones', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
     })
     it('CP02_Validar la acción al dar clic en el botón de edición en el modulo de Actividad por etapa', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.contains('h2', 'Editar Actividad Para Una Etapa').should('be.visible').and('contain.text', 'Editar Actividad Para Una Etapa')
     })
     it('CP03_Validar estructura de la pantalla de Administrar actividades al editar', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.contains('h2', 'Editar Actividad Para Una Etapa').should('be.visible').and('contain.text', 'Editar Actividad Para Una Etapa')
         cy.get('[placeholder="Texto"]').should('be.visible')
@@ -34,7 +34,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.contains('button', 'Cancelar').should('be.visible')
     })
     it('CP04_Validación de campos del formulario al editar registro de Actividad por etapa', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
@@ -46,7 +46,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.get('button.bg-blue-btn').contains('Cerrar').click();
     })
     it('CP06_Validar comportamiento de selección del campo Tipo de delegado', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
@@ -58,7 +58,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico / funcional').click()
     })
     it('CP08_Validar que no permita guardar si hay error en algún campo', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
@@ -68,7 +68,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'Por favor, complete todos los campos requeridos.')
     })
     it('CP9_Validar que si existe un campo vacio no guarde el registro', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
@@ -77,7 +77,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'Por favor, complete todos los campos requeridos.')
     })
     it('CP10_Validar al dar clic en guardar al editar un registro', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
@@ -85,7 +85,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.contains('button', 'Guardar').click({force: true})
     })
     it('CP11_Validar al dar clic en guardar los datos editados y se confirma SI', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(2000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
@@ -107,7 +107,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.get('button.bg-blue-btn').contains('Sí').click();
     })
     it('CP18 Validar inactivar registro de actividad sin subactividades', () => {
-        cy.contains('button', 'Consultar').click()
+        cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
