@@ -1,7 +1,7 @@
 describe('63319 : Mostrar perfil de usuario autenticado', ()=>{
     beforeEach(()=>{
         allure.epic('Sprint 3')
-        allure.feature('Administrar Pregunta por actividad o subactividad')
+        allure.feature('Mostrar perfil de usuario autenticado')
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
