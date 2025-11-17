@@ -1,6 +1,6 @@
 describe('58361 Administrar Pregunta por actividad o subactividad', () => {
     beforeEach(() => {
-        allure.epic('Sprint 2')
+        allure.epic('Sprint 3')
         allure.feature('Administrar Pregunta por actividad o subactividad')
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
