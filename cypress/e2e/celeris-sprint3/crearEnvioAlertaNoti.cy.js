@@ -28,7 +28,7 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
         cy.get('.bg-white.flex.items-center.justify-between.min-h-24').should('be.visible').and('have.length',3)
     });
     it('CP04_Filtros fecha inicial y final presentes', () => {
-        cy.get('input[type="date"]').should('be.visible').and('have.length',2)
+        cy.get('input[type="date"]').should('be.visible').and('have.length',4)
         cy.contains('button','Limpiar').should('be.visible')
         cy.contains('button','Consultar').should('be.visible')
     });
