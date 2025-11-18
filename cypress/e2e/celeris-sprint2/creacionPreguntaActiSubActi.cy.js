@@ -177,7 +177,7 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
         cy.get('input[placeholder="Text"]').last().should('have.prop', 'readOnly', true)
     });
-    it.only('CP17_Acción botón guardar confirmación', () => {
+    it('CP17_Acción botón guardar confirmación', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
         cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Crear pregunta por actividad')
         cy.get('select').eq(0).select('Automatizar etapa')
