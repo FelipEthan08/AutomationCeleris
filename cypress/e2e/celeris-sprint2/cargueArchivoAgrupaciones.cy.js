@@ -86,5 +86,6 @@ describe('62750 : Cargue de Archivo de Agrupaciones Políticas', () => {
         });
         cy.get('#file-input-AGRUPACIONES_POLITICAS').selectFile('cypress/fixtures/archivo_agrupaciones_test.txt', {force: true});
         cy.wait(5000);
+        cy.get('svg.lucide.text-green-600').should('be.visible');
     })
 })

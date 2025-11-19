@@ -13,14 +13,14 @@ describe('62774 Visualizar Subactividades asociadas a una Actividad', ()=>{
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
         cy.contains('button', 'Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(4).should('be.visible').click({force: true})
         cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
     })
     it('CP02_Validar estructura de la pantalla Visualizar subactividades', () => {
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
         cy.contains('button', 'Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(4).should('be.visible').click({force: true})
         cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
         cy.contains('span', 'Nombre de la subactividad').should('be.visible')
         cy.get('.px-2.lg\\:px-5.py-5.pb-\\[21px\\].text-left.text-p-3.font-semibold.font-paragraph.text-gray-600').eq(6).should('be.visible')
@@ -30,7 +30,7 @@ describe('62774 Visualizar Subactividades asociadas a una Actividad', ()=>{
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
         cy.contains('button', 'Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(4).should('be.visible').click({force: true})
         cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
         cy.contains('span', 'Nombre de la subactividad').should('be.visible')
     })
@@ -38,7 +38,7 @@ describe('62774 Visualizar Subactividades asociadas a una Actividad', ()=>{
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
         cy.contains('button', 'Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(10).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(4).should('be.visible').click({force: true})
         cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
         cy.contains('span', 'Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').should('be.visible')

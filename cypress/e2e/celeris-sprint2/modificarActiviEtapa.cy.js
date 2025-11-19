@@ -101,7 +101,7 @@ describe('58310 Modificación de Actividad por etapa', () => {
         cy.contains('button', 'Consultar').click({force: true})
         cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().should('be.visible').click({force: true});
         cy.wait(1000)
-        cy.get('celeris-pencil-draw-outline-icon').eq(1).click({force: true})
+        cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('input[placeholder="Texto"]').eq(0).clear().type('Automatizacion no tocar')
         cy.contains('button', 'Guardar').click({force: true})
         cy.get('button.bg-blue-btn').contains('Sí').click();
