@@ -123,7 +123,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(3).should('be.visible').click()
         cy.get('[placeholder="Buscar..."]').type('Automatizar etapa')
         cy.contains('li','Automatizar etapa').click()
-        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().type('Pruebaqa108')
+        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().clear().type('Pruebaqa108')
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').last().should('be.visible').and('contain.text','Este campo es obligatorio.')
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full').last().should('be.visible').click()
         cy.get('.bg-blue-btn').last().click();
