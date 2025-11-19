@@ -2,8 +2,8 @@
   "name1": "ZZZZZZZZZZZZZZZ automatizada etapa no tocar",
   "name2": "Lorema Ispsum es simpleme el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias",
   "etapa": "ZZ PruebaQA1",
-  "pregunta" : "Pregunta test automatizado",
-  "orden" : "1",
+  "pregunta" : "Pregunta test automatización",
+  "orden" : "7",
   "actividad" : "ZZ automatizada actividad no tocar",
   "subactividad" : "Z automatizada subactividad no tocar"
 }
