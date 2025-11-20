@@ -17,7 +17,7 @@ describe('57788 Recuperación de Contraseña desde Login Web', () =>{
         cy.get('button[type="submit"]').click()
         cy.get('.text-2xl').should('be.visible')
         cy.reload()
-        cy.get('.block.w-full').type('COORDINADOR_ELECTORAL_tps@yopmail.com')
+        cy.get('.block.w-full').type('alicia95_897@imads.org')
         cy.get('button[type="submit"]').click()
         cy.get('.text-2xl').should('contain.text','¡Correo de recuperación en camino!')
     })
