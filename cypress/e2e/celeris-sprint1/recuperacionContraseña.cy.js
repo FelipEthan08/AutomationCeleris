@@ -13,7 +13,7 @@ describe('57788 Recuperación de Contraseña desde Login Web', () =>{
         cy.get('.block.w-full').click()
         cy.get('button[type="submit"]').click({force: true})
         cy.get('.text-red-500').should('contain.text','Este campo es requerido.')
-        cy.get('.block.w-full').type('asdasd@gmail.com')
+        cy.get('.block.w-full').type('alicia95_897@imads.org')
         cy.get('button[type="submit"]').click()
         cy.get('.text-2xl').should('be.visible')
         cy.reload()
