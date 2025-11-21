@@ -184,9 +184,10 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.get('select').eq(1).select('Automatizar actividad')
         cy.get('select').last().select('Automatizacion sub actividad no tocar')
         cy.fixture('crearEtapaPr').then((fixture) => {
-            const random = Math.floor(Math.random() * 10)
+            const random = Math.floor(Math.random() * 200) + 1
             const ordenPregunta = `${fixture.orden}${random}`
-            cy.get('[inputmode="numeric"]').type(ordenPregunta)
+            cy.get('[inputmode="numeric"]').clear()
+            cy.get('[inputmode="numeric"]').type(random, {delay: 2200}, {force : true})
         })
         cy.fixture('crearEtapaPr').then((fixture) => {
             const random = Math.floor(Math.random() * 10000)
