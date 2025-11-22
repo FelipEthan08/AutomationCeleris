@@ -64,13 +64,16 @@ describe('57827 : Configurar fechas por etapas', ()=>{
         cy.contains('button','Guardar').should('be.visible')
         cy.contains('button','Limpiar').should('be.visible')
         cy.get('[placeholder="Nombre"]').first().click({force: true})
+        cy.wait(1000)
         cy.get('input[type="text"]').clear();
-        cy.wait(3000)
         cy.contains('button','Guardar').should('be.visible').click({force: true})
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').should('be.visible').and('contain.text',' Este campo es obligatorio. ')
+        cy.wait(1000)
         cy.get('input[type="text"]').type('asdasdadadasdasdasdadadasdasdasdadadasdasdasdadadasdasdasdadadasdasdasdadadasdasdasdadadasdasdasdadaa');
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').should('be.visible').and('contain.text',' Ha excedido el límite de caracteres permitido ')
+        cy.wait(1000)
         cy.get('input[data-errorkey="electionDate"]').first().clear().type('2026-11-20T18:56');
+        cy.wait(1000)
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').first().should('be.visible').and('contain.text',' El valor ingresado en el campo Fecha y hora inicio es superior al valor ingresado en el campo Fecha y hora fin ')
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').last().should('be.visible').and('contain.text',' El valor ingresado en el campo Fecha y hora fin es inferior al valor ingresado en el campo Fecha y hora inicio ')
         cy.get('input[data-errorkey="electionDate"]').first().type('2025-11-03T18:56');

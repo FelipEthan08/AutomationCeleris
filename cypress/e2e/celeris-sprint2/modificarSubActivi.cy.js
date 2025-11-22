@@ -14,12 +14,12 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP1_Validar acceso desde el listado de sub-actividades',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
     })
     it('CP2_Validar estructura de la modal de editar sub-actividades',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -33,7 +33,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP3_Validar listas desplegables etapa y nombre de actividad',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -46,7 +46,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP4_Validar el comportamiento del campo tipo de delegado',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -61,7 +61,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP5_Validacion del campo Nombre Subactividad vació',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -78,7 +78,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP6_Validar longitud del campo Nombre de sub-actividad',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -97,7 +97,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP7_Validación de duplicado del nombre sub-actividad para la misma actividad y etapa',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -116,7 +116,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP8_Validar que el campo Actividad sea obligatorio',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -130,7 +130,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP9_Validar que el campo Etapa sea obligatorio',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -141,7 +141,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP10_Validar que el campo Estado sea obligatorio',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -151,7 +151,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP11_Validar pop up o mensaje de confirmación de cambios',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
@@ -170,7 +170,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
     })
     it('CP12_Validar comportamiento botón Cancelar y botón Cerrar del form',()=>{
         cy.contains('button','Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(5).should('be.visible').click({force: true})
+        cy.get('celeris-search-outline-icon').eq(1).should('be.visible').click({force: true})
         cy.contains('span','Nombre de la subactividad').should('be.visible')
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text','Editar Sub-Actividad para una etapa')
