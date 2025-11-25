@@ -1,4 +1,4 @@
-describe('63319 : Mostrar perfil de usuario autenticado', ()=>{
+describe('63319 Mostrar perfil de usuario autenticado', ()=>{
     beforeEach(()=>{
         allure.epic('Sprint 3')
         allure.feature('Mostrar perfil de usuario autenticado')

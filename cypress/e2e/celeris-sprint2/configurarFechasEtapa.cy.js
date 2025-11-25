@@ -1,4 +1,4 @@
-describe('57827 : Configurar fechas por etapas', ()=>{
+describe('57827 Configurar fechas por etapas', ()=>{
     beforeEach(() => {
         allure.feature('Configurar fechas por etapas')
         allure.epic('Sprint 2')

@@ -1,4 +1,4 @@
-describe('62750 : Cargue de Archivo de Agrupaciones Políticas', () => {
+describe('62750 Cargue de Archivo de Agrupaciones Políticas', () => {
     beforeEach(() => {
         allure.feature('Cargue de Archivo de Agrupaciones Políticas')
         allure.epic('Sprint 2')
