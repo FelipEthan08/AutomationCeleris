@@ -5,5 +5,6 @@
   "pregunta" : "Pregunta test automatización",
   "orden" : "1",
   "actividad" : "ZZ automatizada actividad no tocar",
-  "subactividad" : "Z automatizada subactividad no tocar"
+  "subactividad" : "Z automatizada subactividad no tocar",
+  "alerta" : "Prueba QA #1"
 }

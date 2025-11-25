@@ -24,7 +24,6 @@ describe('58366 Modificación de pregunta por actividad o subactividad', ()=>{
         cy.get('input[placeholder="Buscar..."]').type('Automatizacion sub actividad no tocar')
         cy.contains('ul li','Automatizacion sub actividad no tocar').click({force: true})
         cy.contains('button','Consultar').click({force: true})
-        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().click({force: true})
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true})
     })
