@@ -252,4 +252,43 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
         cy.contains('button','Sí').should('be.visible').click({force:true})
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Alerta o notificación creada exitosamente.')
     });
+    it('CP17_Programación de envío futuro mes año', ()=>{
+        cy.contains('button','Crear Alerta').click({force: true})
+        cy.get('button[type="button"]').eq(2).should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').type('Boyaca')
+        cy.contains('ul li','Boyaca').click({force: true})
+        cy.get('button[type="button"]').eq(3).should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').type('Socha')
+        cy.contains('ul li','Socha').click({force: true})
+        cy.get('button[type="button"]').eq(4).should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').type('Zona 00')
+        cy.contains('ul li','Zona 00').click({force: true})
+        cy.get('button[type="button"]').eq(5).should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').type('Puesto cabecera municipal')
+        cy.contains('ul li','Puesto cabecera municipal').click({force: true})
+        cy.get('button[type="button"]').eq(6).should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').should('be.visible').type('1')
+        cy.contains('ul li','1').click({force: true})
+        cy.get('button[type="button"]').eq(7).should('be.visible').click({force: true})
+        cy.get('.peer.h-5.w-5.cursor-pointer.transition-all.appearance-none.rounded.shadow').click({force: true})
+        cy.get('input[placeholder="Escribe su mensaje..."]').first().should('be.visible').click()
+        cy.fixture('crearEtapaPr').then((fixture) => {
+            const random = Math.floor(Math.random() * 100)
+            const alerta = `${fixture.alerta}${random}`
+            cy.get('input[placeholder="Escribe su mensaje..."]').first().type(alerta)
+        })
+        cy.get('input[type="date"]').eq(2).type('2026-04-30');
+        cy.get('input[type="time"]').first().should('be.visible').click({force: true})
+        cy.get('input[type="time"]').eq(0).type('12:00');
+        cy.get('.bg-blue-btn.button.cursor-pointer.duration-300').eq(1).scrollIntoView();
+        cy.contains('button','Enviar').should('be.visible').click({force:true})
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la creación de la alerta o notificación?')
+        cy.contains('button','Sí').should('be.visible').click({force:true})
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Alerta o notificación creada exitosamente.')
+    })
 })
