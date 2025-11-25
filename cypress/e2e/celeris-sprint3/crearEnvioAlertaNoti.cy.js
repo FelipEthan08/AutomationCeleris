@@ -105,8 +105,9 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
             const alerta = `${fixture.alerta}${random}`
             cy.get('input[placeholder="Escribe su mensaje..."]').first().type(alerta)
         })
-        const today = new Date().toISOString().slice(0,10)
-        cy.get('input[type="date"]').eq(2).type(today);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const formatted = tomorrow.toISOString().slice(0, 10);
         cy.get('input[type="time"]').first().should('be.visible').click({force: true})
         cy.get('input[type="time"]').eq(0).type('12:00');
         cy.contains('span','Requiere envío inmediato').click({force: true})
@@ -146,8 +147,10 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
             const alerta = `${fixture.alerta}${random}`
             cy.get('input[placeholder="Escribe su mensaje..."]').first().type(alerta)
         })
-        const today = new Date().toISOString().slice(0,10)
-        cy.get('input[type="date"]').eq(2).type(today);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const formatted = tomorrow.toISOString().slice(0, 10);
+        cy.get('input[type="date"]').eq(2).type(formatted);
         cy.get('input[type="time"]').first().should('be.visible').click({force: true})
         cy.get('input[type="time"]').eq(0).type('12:00');
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300').eq(1).scrollIntoView();
@@ -241,8 +244,10 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
             const alerta = `${fixture.alerta}${random}`
             cy.get('input[placeholder="Escribe su mensaje..."]').first().type(alerta)
         })
-        const today = new Date().toISOString().slice(0,10)
-        cy.get('input[type="date"]').eq(2).type(today);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const formatted = tomorrow.toISOString().slice(0, 10);
+        cy.get('input[type="date"]').eq(2).type(formatted);
         cy.get('input[type="time"]').first().should('be.visible').click({force: true})
         cy.get('input[type="time"]').eq(0).type('12:00');
         cy.contains('span','Requiere envío de mensaje de texto').click({force: true})
