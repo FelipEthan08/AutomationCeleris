@@ -12,8 +12,16 @@ describe('62774 Visualizar Subactividades asociadas a una Actividad', ()=>{
     it('CP01_Validar acceso a la pantalla Visualizar subactividades', () => {
         cy.contains('Administrar Actividades').click()
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
-        cy.contains('button', 'Consultar').click({force: true})
-        cy.get('celeris-search-outline-icon').eq(2).should('be.visible').click({force: true})
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(0).click({force: true})
+        cy.get('input[placeholder="Buscar..."]').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').type('Automatizar etapa')
+        cy.contains('ul li','Automatizar etapa').click({force: true})
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(1).click({force: true})
+        cy.get('input[placeholder="Buscar..."]').click({force: true})
+        cy.get('input[placeholder="Buscar..."]').type('Automatizar actividad')
+        cy.contains('ul li','Automatizar actividad').click({force: true})
+        cy.contains('button','Consultar').click({force: true})
+        cy.get('celeris-search-outline-icon').should('be.visible').click({force: true})
         cy.get('.text-xl.font-bold.text-center.mt-5.font-title.text-ocean-footer').should('be.visible').and('contain.text', 'Subactividades')
     })
     it('CP02_Validar estructura de la pantalla Visualizar subactividades', () => {
