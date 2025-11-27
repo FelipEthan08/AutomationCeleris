@@ -71,6 +71,6 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.contains('button', 'Cancelar').click({force: true})
         cy.get('celeris-trash-outline-icon').first().click({force: true});
         cy.screenshot('Paso 4 Mensaje de eliminación', { capture: 'runner' });
-        cy.get('p.text-sm.text-gray-500').should('be.visible').and('contain.text','¿Está seguro de que desea eliminar esta etapa? Esta acción no se puede deshacer.')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de que desea eliminar esta etapa? Esta acción no se puede deshacer.')
     })
 })

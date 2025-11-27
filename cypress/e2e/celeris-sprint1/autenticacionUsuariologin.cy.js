@@ -36,7 +36,7 @@ describe('57775 Autenticación de Usuarios mediante Login', () => {
         cy.get('input[placeholder="Contraseña"]').type('Bogota.20250*')
         cy.wait(4000)
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
-        cy.contains('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph', 'Usuario y/o Contraseña incorrecta, por favor verifique la información')
+        cy.contains('.text-sm.text-gray-500.mt-2.px-4.font-paragraph', 'Usuario y/o Contraseña incorrecta, por favor verifique la información')
             .should('be.visible')
     })
     it('CP5_Validaciones del campo Contraseña', ()=>{
@@ -44,7 +44,7 @@ describe('57775 Autenticación de Usuarios mediante Login', () => {
         cy.get('input[placeholder="Contraseña"]').type('maria.sanchezcsanchezcsanc22222')
         cy.wait(4000)
         cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
-        cy.contains('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph', 'Usuario y/o Contraseña incorrecta, por favor verifique la información')
+        cy.contains('.text-sm.text-gray-500.mt-2.px-4.font-paragraph', 'Usuario y/o Contraseña incorrecta, por favor verifique la información')
             .should('be.visible')
         cy.contains('button', 'Cerrar').click({ force: true })
         cy.get('input[placeholder="Contraseña"]').invoke('val').then((val) => {expect(val.length).to.be.lte(30)})
