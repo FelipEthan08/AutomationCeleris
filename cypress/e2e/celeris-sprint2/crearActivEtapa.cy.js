@@ -78,7 +78,7 @@ describe('58309 Creación de Actividad para una etapa', () => {
         cy.contains('.text-sm.font-normal', 'Delegado de puesto logístico').click()
         cy.contains('button','Guardar').click()
         cy.get('button.bg-blue-btn').contains('Sí').click();
-        cy.contains('p', 'Actividad creada exitosamente.').should('be.visible').and('have.text', 'Actividad creada exitosamente.');
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', 'Actividad creada exitosamente.');
     })
 
 })

@@ -80,7 +80,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
     })
 
     it('CP18_Validar inactivar registro de etapa del proceso', ()=>{
@@ -95,7 +95,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('[placeholder="Buscar..."]').type('Inactivo')
         cy.contains('li','Inactivo').click()
         cy.get('.button.duration-300').contains('Guardar').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold').last().click()
         cy.reload()
@@ -108,7 +108,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('[placeholder="Buscar..."]').type('Activo')
         cy.contains('li','Activo').click()
         cy.get('.button.duration-300').contains('Guardar').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
     })
     it('CP11_Validar al dar clic en guardar los datos editados y se confirma', ()=>{
@@ -120,7 +120,7 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
         cy.get('.button.duration-300').contains('Guardar').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4').contains('Etapa actualizada exitosamente.').should('be.visible');
     })

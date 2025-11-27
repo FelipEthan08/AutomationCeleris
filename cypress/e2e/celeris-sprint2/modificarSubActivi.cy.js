@@ -170,7 +170,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().type('Pruebaqa108')
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full').last().should('be.visible').click()
         cy.get('.bg-blue-btn').last().click();
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('have.text', 'Ya existe una sub-actividad con este nombre en esta actividad.');
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').last().should('be.visible').and('have.text', 'Ya existe una sub-actividad con este nombre en esta actividad.');
     })
     it('CP8_Validar que el campo Actividad sea obligatorio',()=>{
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(0).click({force: true})
@@ -255,7 +255,7 @@ describe('58379 Modificación de sub - actividad para una actividad', () => {
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').clear()
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().type('Pruebaqa108')
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full').last().should('be.visible').click()
-        cy.get('p.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la edición de la subactividad?')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la edición de la subactividad?')
         cy.get('button.bg-transparent.border-blue-900').last().should('be.visible').click({force: true});
     })
     it('CP12_Validar comportamiento botón Cancelar y botón Cerrar del form',()=>{
