@@ -21,4 +21,22 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
     })
+    it('CP02 - Validar la estructura de la pantalla', ()=>{
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
+        cy.contains('h3','Editar Alerta').should('be.visible')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(7).should('be.visible')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(8).should('be.visible')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(9).should('be.visible')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(10).should('be.visible')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(11).should('be.visible')
+        cy.get('.bg-white.block.min-w-full.overflow-x-hidden.px-4').last().should('be.visible')
+        cy.get('input[placeholder="Escribe su mensaje..."]').last().should('be.visible')
+        cy.get('input[type="date"]').eq(3).should('be.visible')
+        cy.get('input[type="time"]').should('be.visible')
+        cy.get('.flex.items-center.shadow.rounded-lg').should('be.visible');
+        cy.get('.bg-white.text-black').should('be.visible');
+        cy.get('.button.bg-blue-btn').last().scrollIntoView();
+        cy.get('button.border-blue-900').should('be.visible');
+        cy.get('button.bg-blue-btn').should('be.visible');
+    })
 })
