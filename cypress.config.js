@@ -26,7 +26,7 @@ export default defineConfig({
 
         retries: {
             runMode: 4,
-            openMode: 1,
+            openMode: 3,
         },
 
         experimentalRunAllSpecs: true,

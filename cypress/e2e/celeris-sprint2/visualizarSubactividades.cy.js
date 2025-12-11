@@ -5,8 +5,8 @@ describe('62774 Visualizar Subactividades asociadas a una Actividad', ()=>{
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
-        cy.wait(4000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
+        cy.wait(3000)
+        cy.contains('button', 'Ingresar').click();
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
     it('CP01_Validar acceso a la pantalla Visualizar subactividades', () => {

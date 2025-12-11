@@ -6,7 +6,7 @@ describe('58307 Administrar Actividades - Consulta de Actividades', () => {
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(3000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
+        cy.contains('button', 'Ingresar').click();
         cy.screenshot('Paso 1 Login exitoso', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
@@ -101,8 +101,8 @@ describe('58307 Administrar Actividades - Consulta de Actividades', () => {
         cy.screenshot('Paso 2 Administrar etapa', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-activities');
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer').first().click().should('be.visible').and('have.text', 'Seleccione una opción')
-        cy.get('[placeholder="Buscar..."]').first().type('Pruebaqa')
-        cy.get('ul li').contains('Pruebaqa').should('be.visible').click({force: true});
+        cy.get('[placeholder="Buscar..."]').first().type('7. diligenciar formulario e17')
+        cy.get('ul li').contains('7. diligenciar formulario e17').should('be.visible').click({force: true});
         cy.contains('button','Consultar').click({force: true})
         cy.wait(500)
         cy.get('[role="cell"]').should('be.visible').and('contain.text','No se encontraron registros para los criterios seleccionados')

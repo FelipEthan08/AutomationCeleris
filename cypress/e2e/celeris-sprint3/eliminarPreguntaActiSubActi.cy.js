@@ -6,7 +6,7 @@ describe('58367 Eliminar pregunta por actividad o subactividad', ()=>{
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(3000)
-        cy.get('button[type=submit]').click({force: true})
+        cy.contains('button', 'Ingresar').click();
         cy.url().should('eq','https://celerisawsqa.tps.net.co/dashboard')
         cy.contains('Administrar Pregunta por Actividad').click({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-questions');

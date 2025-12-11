@@ -5,8 +5,8 @@ describe('57827 Configurar fechas por etapas', ()=>{
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
-        cy.wait(4000)
-        cy.get('button[type="submit"]').contains('Ingresar').dblclick({force: true})
+        cy.wait(3000)
+        cy.contains('button', 'Ingresar').click();
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
     it('CP01_Validar la estructura completa de la pantalla', () => {
@@ -122,9 +122,10 @@ describe('57827 Configurar fechas por etapas', ()=>{
         cy.get('[placeholder="Buscar..."]').click({force: true})
         cy.get('[placeholder="Buscar..."]').type("MESA 1",{force: true})
         cy.contains('ul li','Mesa 1').click({force: true})
-        cy.get('input[data-errorkey="1172.466.start"]').scrollIntoView();
-        cy.get('input[data-errorkey="1172.466.start"]').first().clear().type('2025-10-01T18:56');
-        cy.get('input[data-errorkey="1172.466.467.start"]').first().clear().type('2025-10-01T18:56');
+        cy.get('input[data-errorkey="1645.stage.start"]').scrollIntoView();
+        cy.get('input[data-errorkey="1645.stage.start"]').first().clear().type('2025-12-01T18:56');
+        cy.get('input[data-errorkey="1645.stage.end"]').first().clear().type('2025-12-31T18:56');
+        cy.contains('button','Guardar').scrollIntoView();
         cy.contains('button','Guardar').should('be.visible').click({force: true})
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de guardar la configuración realizada?')
         cy.contains('button','No').should('be.visible').click({force: true})
@@ -163,9 +164,9 @@ describe('57827 Configurar fechas por etapas', ()=>{
         cy.get('[placeholder="Buscar..."]').click({force: true})
         cy.get('[placeholder="Buscar..."]').type("MESA 1",{force: true})
         cy.contains('ul li','Mesa 1').click({force: true})
-        cy.get('input[data-errorkey="1172.466.start"]').scrollIntoView();
-        cy.get('input[data-errorkey="1172.466.start"]').first().clear().type('2025-10-01T18:56');
-        cy.get('input[data-errorkey="1172.466.467.start"]').first().clear().type('2025-10-01T18:56');
+        cy.get('input[data-errorkey="1645.stage.start"]').scrollIntoView();
+        cy.get('input[data-errorkey="1645.stage.start"]').first().clear().type('2025-10-01T18:56');
+        cy.get('input[data-errorkey="1645.stage.end"]').first().clear().type('2025-10-01T18:56');
         cy.contains('button','Limpiar').should('be.visible').click({force: true})
     })
 })

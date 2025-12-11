@@ -6,7 +6,7 @@ describe('58366 Modificación de pregunta por actividad o subactividad', ()=>{
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(3000)
-        cy.get('button[type=submit]').click({force: true})
+        cy.contains('button', 'Ingresar').click();
         cy.url().should('eq','https://celerisawsqa.tps.net.co/dashboard')
         cy.contains('Administrar Pregunta por Actividad').click({force: true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-questions');
@@ -32,7 +32,7 @@ describe('58366 Modificación de pregunta por actividad o subactividad', ()=>{
     })
     it('CP02_Estructura de la pantalla / modal de edición', ()=>{
         cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Editar Pregunta')
-        cy.get('select.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(0).find('option[value="839"]').should('exist').and('have.text', 'Automatizar etapa');
+        cy.get('select.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(0).find('option[value="1643"]').should('exist').and('have.text', 'Automatizar etapa');
         cy.get('.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(1).should('contain.text','Automatizar actividad')
         cy.get('.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(2).should('contain.text','Automatizacion sub actividad no tocar')
         cy.get('input[placeholder="Text"]').first().should('have.attr', 'inputmode', 'numeric');
