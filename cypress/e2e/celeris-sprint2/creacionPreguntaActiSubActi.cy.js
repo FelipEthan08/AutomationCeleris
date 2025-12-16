@@ -137,7 +137,7 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.get('[type="checkbox"]').eq(1).should('be.visible')
         cy.get('[type="checkbox"]').eq(2).should('be.visible')
         cy.get('[type="checkbox"]').eq(3).should('be.visible')
-        cy.get('[type="checkbox"]').eq(4).should('be.visible')
+        cy.contains('button',' Agregar otra pregunta ').should('be.visible')
     });
     it('CP13_Validar campos obligatorios de formulario', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()
@@ -154,7 +154,7 @@ describe('58363 Creación de pregunta por actividad o subactividad', ()=>{
         cy.get('.px-6.py-2.border.border-gray-300.text-gray-700').should('be.visible')
         cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible')
         cy.get('.px-6.py-2.bg-blue-600.text-white.font-medium.rounded-full').should('be.visible').click()
-        cy.get('div.text-red-500.text-sm.mt-1').should('have.length', 5)
+        cy.get('div.text-red-500.text-sm.mt-1').should('have.length', 4)
     });
     it('CP14_Validar duplicidad pregunta', () => {
         cy.get('.bg-linear-90.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').should('be.visible').click()

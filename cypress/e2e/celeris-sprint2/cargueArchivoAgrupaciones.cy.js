@@ -59,7 +59,7 @@ describe('62750 Cargue de Archivo de Agrupaciones Políticas', () => {
         cy.get('.text-base.block').should('be.visible')
         cy.get('#file-input-AGRUPACIONES_POLITICAS').selectFile('cypress/fixtures/EstructuraMalformadaAgrupaciones.csv', {force: true});
         cy.wait(5000)
-        cy.get('.px-6.py-4.text-sm.text-slate-600.whitespace-normal.break-words.align-top').should('be.visible')
+        cy.get('.p-6.text-slate-600').should('be.visible')
     })
     it('CP07_Cargue exitoso de archivo valido', () => {
         cy.contains('Cargue de Archivo').click()

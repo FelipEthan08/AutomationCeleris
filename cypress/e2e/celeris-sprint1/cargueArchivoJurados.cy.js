@@ -104,6 +104,6 @@ describe('58249 Cargue Inicial de Archivo Jurados', () => {
         cy.contains('button','Jurados').click({force: true})
         cy.wait(5000)
         cy.get('#file-input-JURADOS').selectFile('cypress/fixtures/CargaEstructuraMalformada.txt', {force: true});
-        cy.get('.px-6.py-4.text-sm.text-slate-600.whitespace-normal.break-words.align-top').should('be.visible')
+        cy.get('.p-6.text-slate-600').should('be.visible')
     })
 })

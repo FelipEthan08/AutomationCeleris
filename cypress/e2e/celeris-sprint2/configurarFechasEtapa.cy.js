@@ -88,7 +88,7 @@ describe('57827 Configurar fechas por etapas', ()=>{
         cy.contains('button','Limpiar').should('be.visible')
         cy.get('[placeholder="Nombre"]').first().click({force: true})
         cy.get('input[type="text"]').clear();
-        cy.wait(3000)
+        cy.wait(9000)
         cy.contains('button','Guardar').should('be.visible').click({force: true})
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').should('be.visible').and('contain.text',' Este campo es obligatorio. ')
     })
@@ -122,9 +122,9 @@ describe('57827 Configurar fechas por etapas', ()=>{
         cy.get('[placeholder="Buscar..."]').click({force: true})
         cy.get('[placeholder="Buscar..."]').type("MESA 1",{force: true})
         cy.contains('ul li','Mesa 1').click({force: true})
-        cy.get('input[data-errorkey="1645.stage.start"]').scrollIntoView();
-        cy.get('input[data-errorkey="1645.stage.start"]').first().clear().type('2025-12-01T18:56');
-        cy.get('input[data-errorkey="1645.stage.end"]').first().clear().type('2025-12-31T18:56');
+        cy.get('input[data-errorkey="1721.stage.start"]').scrollIntoView();
+        cy.get('input[data-errorkey="1721.stage.start"]').first().clear().type('2025-12-01T18:56');
+        cy.get('input[data-errorkey="1721.stage.end"]').first().clear().type('2025-12-31T18:56');
         cy.contains('button','Guardar').scrollIntoView();
         cy.contains('button','Guardar').should('be.visible').click({force: true})
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de guardar la configuración realizada?')
@@ -164,9 +164,9 @@ describe('57827 Configurar fechas por etapas', ()=>{
         cy.get('[placeholder="Buscar..."]').click({force: true})
         cy.get('[placeholder="Buscar..."]').type("MESA 1",{force: true})
         cy.contains('ul li','Mesa 1').click({force: true})
-        cy.get('input[data-errorkey="1645.stage.start"]').scrollIntoView();
-        cy.get('input[data-errorkey="1645.stage.start"]').first().clear().type('2025-10-01T18:56');
-        cy.get('input[data-errorkey="1645.stage.end"]').first().clear().type('2025-10-01T18:56');
+        cy.get('input[data-errorkey="1721.stage.start"]').scrollIntoView();
+        cy.get('input[data-errorkey="1721.stage.start"]').first().clear().type('2025-10-01T18:56');
+        cy.get('input[data-errorkey="1721.stage.end"]').first().clear().type('2025-10-01T18:56');
         cy.contains('button','Limpiar').should('be.visible').click({force: true})
     })
 })

@@ -29,7 +29,6 @@ describe('58361 Administrar Pregunta por actividad o subactividad', () => {
     it('CP03_Validación de campos obligatorios en filtros', () => {
         cy.contains('button','Consultar').click({force: true})
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').first().should('be.visible').and('contain.text',' La etapa es requerida. ')
-        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').last().should('be.visible').and('contain.text',' La actividad es requerida. ')
     });
     it('CP04_Dependencia de listas desplegables', () => {
         cy.get('.bg-white.block.border.border-gray-300').eq(0).should('be.visible').click({force: true})

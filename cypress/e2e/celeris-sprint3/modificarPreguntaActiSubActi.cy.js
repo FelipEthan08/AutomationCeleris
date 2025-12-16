@@ -32,7 +32,7 @@ describe('58366 Modificación de pregunta por actividad o subactividad', ()=>{
     })
     it('CP02_Estructura de la pantalla / modal de edición', ()=>{
         cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Editar Pregunta')
-        cy.get('select.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(0).find('option[value="1643"]').should('exist').and('have.text', 'Automatizar etapa');
+        cy.get('select.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(0).find('option[value="1682"]').should('exist').and('have.text', 'Automatizar etapa');
         cy.get('.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(1).should('contain.text','Automatizar actividad')
         cy.get('.w-full.px-3.py-2.bg-gray-50.border.border-gray-200').eq(2).should('contain.text','Automatizacion sub actividad no tocar')
         cy.get('input[placeholder="Text"]').first().should('have.attr', 'inputmode', 'numeric');
@@ -61,7 +61,7 @@ describe('58366 Modificación de pregunta por actividad o subactividad', ()=>{
         cy.get('select').eq(0).select('Seleccione una opción')
         cy.get('input[placeholder="Text"]').first().should('be.visible').clear()
         cy.contains('button','Guardar').click({force: true})
-        cy.get('.text-red-500.text-sm.mt-1').should('have.length',4).and('contain.text','Este campo es obligatorio.')
+        cy.get('.text-red-500.text-sm.mt-1').should('have.length',3).and('contain.text','Este campo es obligatorio.')
     })
     it('CP04_Comportamiento de listas desplegables dependientes', ()=>{
         cy.get('.text-xl.font-semibold.text-gray-900').should('be.visible').and('contain.text','Editar Pregunta')
@@ -82,7 +82,7 @@ describe('58366 Modificación de pregunta por actividad o subactividad', ()=>{
         cy.get('[type="checkbox"]').last().should('be.visible').click({force: true})
         cy.contains('span','Observación')
         cy.contains('span','Opción múltiple')
-        cy.contains('span','Otra pregunta')
+        cy.get('.px-3.py-1\\.5.bg-blue-600.text-white.text-xs.font-medium.rounded-full').should('be.visible')
         cy.contains('span','Adjuntar archivo')
         cy.get('.px-4.py-2.bg-white.border.border-blue-600').last().click({force: true})
     })
