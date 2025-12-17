@@ -2,9 +2,6 @@ name: Cypress Tests (Cloud)
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
-
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
