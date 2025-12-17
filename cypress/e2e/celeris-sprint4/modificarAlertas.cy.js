@@ -21,7 +21,7 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
     })
-    it('CP02_Validar la estructura de la pantalla', ()=>{
+    it('CP02_Validar la estructura de la pantalla modificar', ()=>{
         cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(7).should('be.visible')
