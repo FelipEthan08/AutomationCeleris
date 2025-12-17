@@ -91,10 +91,10 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').type('Prueba qa #187')
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300').last().scrollIntoView();
         cy.get('.button.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full.items-center.justify-center.min-w-8').last().should('be.visible').click()
-        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la creación de la alerta o notificación?')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la actualización de la alerta o notificación?')
         cy.contains('button','No').click()
         cy.get('.button.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full.items-center.justify-center.min-w-8').last().should('be.visible').click()
-        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la creación de la alerta o notificación?')
+        cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la actualización de la alerta o notificación?')
         cy.contains('button','Sí').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Ya existe un mensaje con el mismo contenido programado recientemente a los destinatarios seleccionados. ¿Está seguro de que desea enviarlo nuevamente?')
         cy.reload()
