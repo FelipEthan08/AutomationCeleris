@@ -1,23 +1,27 @@
-name: Cypress Tests (Self-Hosted)
+name: Cypress Tests
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Dónde ejecutar'
+        required: true
+        default: 'self'
+        type: choice
+        options:
+          - self
+          - cloud
 
 jobs:
   cypress-run:
-    runs-on: self-hosted
+    runs-on: ${{ inputs.runner == 'self' && 'self-hosted' || 'ubuntu-latest' }}
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - run: npm ci
-
       - uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          headed: false
-          record: false
