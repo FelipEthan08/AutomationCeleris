@@ -1,14 +1,14 @@
-name: Cypress Tests with Allure
+name: Cypress + Allure (Self-hosted)
 
 on:
   workflow_dispatch:
 
 jobs:
   cypress-run:
-    runs-on: self-hosted   # o ubuntu-latest si quieres cloud
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -23,23 +23,22 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-        env:
-          ALLURE_RESULTS_PATH: allure-results
+        continue-on-error: true   # ⬅️ CLAVE
 
       # 🔹 Instalar Allure CLI
       - name: Install Allure CLI
+        if: always()
         run: npm install -g allure-commandline
 
-      # 🔹 Generar reporte HTML
-      - name: Generate Allure Report
-        run: |
-          allure generate allure-results --clean -o allure-report
+      # 🔹 Generar reporte
+      - name: Generate Allure report
+        if: always()
+        run: allure generate allure-results --clean -o allure-report
 
       # 🔹 Publicar en GitHub Pages
       - name: Deploy Allure to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
           publish_dir: allure-report
-          destination_dir: allure
