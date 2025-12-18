@@ -7,14 +7,11 @@ on:
         description: 'Dónde ejecutar'
         required: true
         default: 'self'
-        type: choice
-        options:
-          - self
-          - cloud
 
 jobs:
   cypress-run:
-    runs-on: ${{ inputs.runner == 'self' && 'self-hosted' || 'ubuntu-latest' }}
+    runs-on: self-hosted
+
 
     steps:
       - uses: actions/checkout@v4
