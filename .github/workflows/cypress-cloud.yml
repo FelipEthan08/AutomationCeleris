@@ -23,11 +23,10 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          env:
-            # Variables para que Allure muestre GitHub Actions como executor
-            ALLURE_EXECUTOR_NAME: "GitHub Actions"
-            ALLURE_EXECUTOR_URL: "https://github.com/FelipEthan08/AutomationCeleris/actions"
-            ALLURE_EXECUTOR_BUILD: ${{ github.run_number }}
+        env:
+          ALLURE_EXECUTOR_NAME: "GitHub Actions"
+          ALLURE_EXECUTOR_URL: "https://github.com/FelipEthan08/AutomationCeleris/actions"
+          ALLURE_EXECUTOR_BUILD: ${{ github.run_number }}
 
       - name: Install Allure
         if: always()
