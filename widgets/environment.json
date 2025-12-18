@@ -1,0 +1,1 @@
+[{"values":["QA"],"name":"Environment"},{"values":["Windows 11 Enterprise"],"name":"Platform"},{"values":["https://celerisawsqa.tps.net.co"],"name":"BaseURL"},{"values":["Cypress Local Runner"],"name":"Executor"},{"values":["Andrés Quimbayo"],"name":"User"}]
