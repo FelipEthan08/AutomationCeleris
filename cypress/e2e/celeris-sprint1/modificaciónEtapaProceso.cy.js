@@ -119,6 +119,9 @@ describe('58294 Modificación de etapa del proceso', () => {
         cy.wait(1000)
         cy.get('celeris-pencil-draw-outline-icon').last().click({force: true});
         cy.get('.text-lg.font-title.font-medium.capitalize').should('be.visible').and('contain.text', 'Editar Etapa Del Proceso')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').last().click()
+        cy.get('[placeholder="Buscar..."]').type('Activo')
+        cy.contains('li','Activo').click()
         cy.get('.button.duration-300').contains('Guardar').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('contain.text', '¿Está seguro de realizar la edición de la etapa?')
         cy.contains('button', 'Sí').click()
