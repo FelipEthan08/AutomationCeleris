@@ -25,6 +25,9 @@ jobs:
       # 4️⃣ Run Cypress
       - name: Run Cypress
         uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_user: ${{ secrets.CYPRESS_USER_GHA }}
+          CYPRESS_pass: ${{ secrets.CYPRESS_PASS_GHA }}
         with:
           browser: chrome
 

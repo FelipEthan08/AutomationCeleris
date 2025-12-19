@@ -1,4 +1,4 @@
-describe('63126 Creación de notificación automática para actividades y subactividades (ID: 64442)', ()=>{
+describe('63126 Creación de notificación automática para actividades y subactividades', ()=>{
     beforeEach( ()=>{
         allure.epic('Sprint 4')
         allure.feature('Creación de notificación automática para actividades y subactividades')
@@ -350,4 +350,5 @@ describe('63126 Creación de notificación automática para actividades y subact
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', '¿Está seguro de realizar la creación de la notificación automática? Tenga en cuenta que se van a crear 1 cantidad de notificaciones automáticas')
         cy.contains('button','No').should('be.visible').click({force:true})
     })
+
 })
