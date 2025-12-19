@@ -39,6 +39,31 @@ describe('63121 Administrar Notificaciones automáticas de actividades y subacti
         cy.get('.bg-white.flex.items-center.justify-between.min-h-24').should('be.visible').and('have.length',2)
         cy.contains('p','Total de notificaciones creadas')
         cy.contains('p','Total de notificaciones inactivas')
-
+    })
+    it('CP07_Validar menú lateral y navegación', ()=>{
+        cy.contains('span', 'Administrar notificaciones automaticas').click({force: true})
+        cy.url().should("eq", 'https://celerisawsqa.tps.net.co/dashboard/alerts/manage-notification')
+        cy.get('a[href="/dashboard/alerts/manage-notification"]').should('have.class', 'bg-[#07055C]');
+    })
+    it('CP08_Estructura del encabezado principal', ()=>{
+        cy.contains('span', 'Administrar notificaciones automaticas').click({force: true})
+        cy.url().should("eq", 'https://celerisawsqa.tps.net.co/dashboard/alerts/manage-notification')
+        cy.contains('h1','Listado de Notificaciones Automáticas')
+    })
+    it('CP09_Presencia de campos de filtro', ()=>{
+        cy.contains('span', 'Administrar notificaciones automaticas').click({force: true})
+        cy.url().should("eq", 'https://celerisawsqa.tps.net.co/dashboard/alerts/manage-notification')
+        cy.contains('button', 'Filtro').should('be.visible').click({force:true})
+        cy.contains('label',' Nombre de la etapa ')
+        cy.contains('label',' Nombre de la actividad ')
+        cy.contains('label',' Nombre de la sub-actividad ')
+    })
+    it('CP10_Validar opción por defecto en listas desplegables', ()=>{
+        cy.contains('span', 'Administrar notificaciones automaticas').click({force: true})
+        cy.url().should("eq", 'https://celerisawsqa.tps.net.co/dashboard/alerts/manage-notification')
+        cy.contains('button', 'Filtro').should('be.visible').click({force:true})
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(0).should('be.visible').and('have.prop','innerText','Todos')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(1).should('be.visible').and('have.prop','innerText','Todos')
+        cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(2).should('be.visible').and('have.prop','innerText','Todos')
     })
 })
