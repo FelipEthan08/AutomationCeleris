@@ -43,7 +43,7 @@
         env: {
             allure: true,
             allureResultsPath: "allure-results",
-            user: "1121212642",
+            user: "1073253202",
             pass: "Bogota.2025*",
             urlBase: "https://celerisawsqa.tps.net.co/auth/login",
         }
