@@ -87,7 +87,8 @@ describe('57827 Configurar fechas por etapas', ()=>{
         cy.contains('button','Guardar').should('be.visible')
         cy.contains('button','Limpiar').should('be.visible')
         cy.get('[placeholder="Nombre"]').first().click({force: true})
-        cy.get('input[type="text"]').clear();
+        cy.get('input.placeholder\\:text-gray-300').clear();
+        cy.get('input.placeholder\\:text-gray-300').clear();
         cy.wait(9000)
         cy.contains('button','Guardar').should('be.visible').click({force: true})
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').should('be.visible').and('contain.text',' Este campo es obligatorio. ')
