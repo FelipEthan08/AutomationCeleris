@@ -350,7 +350,7 @@ describe('63126 Creación de notificación automática para actividades y subact
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text', '¿Está seguro de realizar la creación de la notificación automática? Tenga en cuenta que se van a crear 1 cantidad de notificaciones automáticas')
         cy.contains('button','No').should('be.visible').click({force:true})
     })
-    it.only('CP33_Validar envío push o emergente en app', ()=> {
+    it('CP33_Validar envío push o emergente en app', ()=> {
         cy.contains('button', 'Crear notificación').click({force: true})
         cy.contains('button', 'Crear notificación').click({force: true})
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(3).should('be.visible').click({force: true})
