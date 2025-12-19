@@ -1,7 +1,7 @@
-describe('63126 Creación de notificación automática para actividades y subactividades', ()=>{
+describe('63121 Administrar Notificaciones automáticas de actividades y subactividades - Consulta de notificaciones automáticas', ()=>{
     beforeEach( ()=>{
         allure.epic('Sprint 4')
-        allure.feature('Creación de notificación automática para actividades y subactividades')
+        allure.feature('Administrar Notificaciones automáticas de actividades y subactividades - Consulta de notificaciones automáticas')
         cy.visit(Cypress.env('urlBase'))
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
