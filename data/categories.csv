@@ -1,2 +1,5 @@
 "BROKEN","CATEGORY","FAILED","PASSED","SKIPPED","UNKNOWN"
-"0","Ejecución correcta","0","202","0","0"
+"0","Elementos no encontrados","6","0","0","0"
+"2","Test defects","0","0","0","0"
+"0","Ejecución correcta","0","200","0","0"
+"0","Tests omitidos manualmente","0","0","4","0"
