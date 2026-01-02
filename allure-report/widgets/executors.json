@@ -1,1 +1,1 @@
-[{"name":"Jenkins","type":"jenkins","url":"http://localhost:8080/","buildOrder":6,"buildName":"AutomationCelerisLocal #6","buildUrl":"http://localhost:8080/job/AutomationCelerisLocal/6/","reportName":"AllureReport","reportUrl":"http://localhost:8080/job/AutomationCelerisLocal/6/allure"}]
+[{"name":"Jenkins","type":"jenkins","url":"http://localhost:8080/","buildOrder":10,"buildName":"AutomationCelerisLocal #10","buildUrl":"http://localhost:8080/job/AutomationCelerisLocal/10/","reportName":"AllureReport","reportUrl":"http://localhost:8080/job/AutomationCelerisLocal/10/allure"}]

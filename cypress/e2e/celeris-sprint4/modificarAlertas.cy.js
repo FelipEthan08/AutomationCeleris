@@ -18,17 +18,27 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         cy.contains('button','Consultar').click({force:true})
     })
     it('CP01_Validar el acceso a la funcionalidad', ()=>{
-        cy.get('celeris-pencil-draw-outline-icon').last().should('be.visible').click({force:true})
+        cy.wait(2000)
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-gray-200.text-gray-800').last().scrollIntoView();
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').eq(0).click({force:true})
+        cy.wait(3000)
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
     })
     it('CP02_Validar la estructura de la pantalla modificar', ()=>{
-        cy.get('celeris-pencil-draw-outline-icon').last().should('be.visible').click({force:true})
+        cy.wait(2000)
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-gray-200.text-gray-800').last().scrollIntoView();
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').eq(0).click({force:true})
+        cy.wait(3000)
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(7).should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(8).should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(9).should('be.visible')
+        cy.get('aside.bg-ocean-footer').invoke('css', 'display', 'none')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(10).should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(11).should('be.visible')
+
         cy.get('.bg-white.block.min-w-full.overflow-x-hidden.px-4').last().should('be.visible')
         cy.get('input[placeholder="Escribe su mensaje..."]').last().should('be.visible')
         cy.get('input[type="date"]').eq(3).should('be.visible')
@@ -40,11 +50,16 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         cy.get('button.bg-blue-btn').should('be.visible');
     })
     it('CP03_Validar los campos del formulario de modificación', ()=>{
-        cy.get('celeris-pencil-draw-outline-icon').last().should('be.visible').click({force:true})
+        cy.wait(2000)
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-gray-200.text-gray-800').last().scrollIntoView();
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').eq(0).click({force:true})
+        cy.wait(3000)
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(7).should('be.visible').and('have.prop','innerText','Boyaca')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(8).should('be.visible').and('have.prop','innerText','Socha')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(9).should('be.visible').and('have.prop','innerText','Zona 00')
+        cy.get('aside.bg-ocean-footer').invoke('css', 'display', 'none')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(10).should('be.visible').and('have.prop','innerText','Puesto cabecera municipal')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(11).should('be.visible').and('have.prop','innerText','1')
         cy.get('.bg-white.block.min-w-full.overflow-x-hidden.px-4.py-2').last().should('be.visible').and('have.prop','innerText','Jose')
@@ -64,7 +79,11 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         })
     })
     it('CP04_Validar errores y validaciones en la pantalla', ()=>{
-        cy.get('celeris-pencil-draw-outline-icon').last().should('be.visible').click({force:true})
+        cy.wait(2000)
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-gray-200.text-gray-800').last().scrollIntoView();
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').last().click({force:true})
+        cy.wait(2000)
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
         cy.fixture('crearEtapaPr').then((fixture)=>{
             const name = `${fixture.name2}`
@@ -73,22 +92,32 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         })
     })
     it('CP05_Validar duplicidad de alertas',()=>{
-        cy.get('celeris-pencil-draw-outline-icon').last().should('be.visible').click({force:true})
+        cy.wait(2000)
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-gray-200.text-gray-800').last().scrollIntoView();
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').eq(0).click({force:true})
+        cy.wait(3000)
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').click()
+        cy.wait(2000)
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').clear()
-        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').type('Prueba qa #187')
+        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').type('Prueba qa #187',{delay:120})
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300').last().scrollIntoView();
         cy.get('.button.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full.items-center.justify-center.min-w-8').last().should('be.visible').click()
         cy.contains('button','Sí').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Ya existe un mensaje con el mismo contenido programado recientemente a los destinatarios seleccionados. ¿Está seguro de que desea enviarlo nuevamente?')
     })
     it('CP06_Validar botones del formulario',()=>{
-        cy.get('celeris-pencil-draw-outline-icon').last().should('be.visible').click({force:true})
+        cy.wait(2000)
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-gray-200.text-gray-800').last().scrollIntoView();
+        cy.get('.px-3.py-1.rounded-md.cursor-pointer.bg-white.text-gray-700').eq(0).click({force:true})
+        cy.wait(3000)
+        cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible').click({force:true})
         cy.contains('h3','Editar Alerta').should('be.visible')
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').click()
+        cy.wait(2000)
         cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').clear()
-        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').type('Prueba qa #187')
+        cy.get('.block.w-full.py-2.bg-transparent.outline-none').last().should('be.visible').type('Prueba qa #187',{delay:120})
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300').last().scrollIntoView();
         cy.get('.button.duration-300.flex.flex-row.font-paragraph.font-semibold.h-full.items-center.justify-center.min-w-8').last().should('be.visible').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','¿Está seguro de realizar la actualización de la alerta o notificación?')
