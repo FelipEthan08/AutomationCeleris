@@ -42,6 +42,10 @@ describe('58105 Administrar envío de alertas o notificaciones - Consulta de ale
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','No se encontraron registros para los criterios seleccionados.')
         cy.get('.bg-blue-btn').last().click({force:true});
         cy.contains('button','Limpiar').should('be.visible').click({force:true});
+        cy.get('.hide-calendar-icon').first().should('be.visible').click({force: true})
+        cy.get('.hide-calendar-icon').first().type('2026-04-01')
+        cy.get('.hide-calendar-icon').eq(1).should('be.visible').click({force:true});
+        cy.get('.hide-calendar-icon').eq(1).type('2026-04-30');
         cy.contains('button','Consultar').should('be.visible').click({force:true});
         cy.get('celeris-pencil-draw-outline-icon').first().should('be.visible')
         cy.get('celeris-trash-outline-icon').first().should('be.visible')
