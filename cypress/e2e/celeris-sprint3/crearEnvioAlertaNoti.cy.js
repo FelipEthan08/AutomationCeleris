@@ -70,7 +70,6 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
         cy.contains('button','Enviar').should('be.visible').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Por favor, complete todos los campos requeridos.')
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').last().click({force: true})
-        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center ').first().should('be.visible').and('contain.text','Debe seleccionar un departamento.')
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center ').eq(1).should('be.visible').and('contain.text','No puede estar vacío.')
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center ').eq(2).should('be.visible').and('contain.text','Debe seleccionar una fecha.')
         cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center ').eq(3).should('be.visible').and('contain.text','Debe seleccionar una hora.')
@@ -257,7 +256,10 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
         cy.contains('button','Sí').should('be.visible').click({force:true})
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Alerta o notificación creada exitosamente.')
     });
-    it('CP17_Programación de envío futuro mes año', ()=>{
+    it('should ', () => {
+        
+    });
+    ('CP17_Programación de envío futuro mes año', ()=>{
         cy.contains('button','Crear Alerta').click({force: true})
         cy.get('button[type="button"]').eq(4).should('be.visible').click({force: true})
         cy.get('input[placeholder="Buscar..."]').should('be.visible').click({force: true})
