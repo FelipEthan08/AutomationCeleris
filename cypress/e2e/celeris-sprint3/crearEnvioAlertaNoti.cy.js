@@ -70,9 +70,9 @@ describe('58127 Creación de envío de alertas o notificación',() =>{
         cy.contains('button','Enviar').should('be.visible').click()
         cy.get('.text-sm.text-gray-500.mt-2.px-4.font-paragraph').should('be.visible').and('contain.text','Por favor, complete todos los campos requeridos.')
         cy.get('.bg-blue-btn.button.cursor-pointer.duration-300.flex.flex-row.font-paragraph').last().click({force: true})
-        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center ').eq(1).should('be.visible').and('contain.text','No puede estar vacío.')
-        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center ').eq(2).should('be.visible').and('contain.text','Debe seleccionar una fecha.')
-        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center ').eq(3).should('be.visible').and('contain.text','Debe seleccionar una hora.')
+        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(0).should('be.visible').and('contain.text','No puede estar vacío.')
+        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(1).should('be.visible').and('contain.text','Debe seleccionar una fecha.')
+        cy.get('.text-red-500.text-xs.italic.mt-1.flex.items-center').eq(2).should('be.visible').and('contain.text','Debe seleccionar una hora.')
     });
     it('CP09_Envío inmediato con checkbox marcado', () => {
         cy.contains('button','Crear Alerta').click({force: true})
