@@ -6,7 +6,7 @@ describe('58296 Eliminar etapa del proceso electoral', () => {
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(3000)
-        cy.contains('button', 'Ingresar').click({force:true});
+        cy.contains('button', 'Ingresar').dblclick({force:true});
         cy.screenshot('Paso 1 Login exitoso', { capture: 'runner' });
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
         cy.contains('Administrar Etapa Proceso Electoral').click()

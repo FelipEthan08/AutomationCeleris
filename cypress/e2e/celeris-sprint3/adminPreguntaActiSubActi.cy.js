@@ -6,7 +6,7 @@ describe('58361 Administrar Pregunta por actividad o subactividad', () => {
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(3000)
-        cy.contains('button', 'Ingresar').click();
+        cy.contains('button', 'Ingresar').dblclick();
         cy.screenshot('Paso 1 Login exitoso', { capture: 'runner' });
         cy.url().should('eq','https://celerisawsqa.tps.net.co/dashboard')
         cy.contains('Administrar Pregunta por Actividad').click({force:true})

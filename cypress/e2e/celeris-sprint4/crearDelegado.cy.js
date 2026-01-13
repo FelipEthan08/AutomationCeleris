@@ -6,7 +6,7 @@ describe('57862 Crear delegado', ()=>{
         cy.get('input[placeholder="Usuario"]').type('45467')
         cy.get('input[placeholder="Contraseña"]').type('Bogota.2025*')
         cy.wait(4000)
-        cy.contains('button','Ingresar').click({force:true})
+        cy.contains('button','Ingresar').dblclick({force:true})
         cy.contains('a','Administrar Delegados de Puesto').click({force:true})
         cy.url().should('eq','https://celerisawsqa.tps.net.co/dashboard/delegates/manage-delegates')
     })
