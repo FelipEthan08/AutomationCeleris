@@ -6,7 +6,7 @@ describe('58289 Administrar Etapa del Proceso electoral - Consulta de etapa proc
         cy.screenshot('Paso 1 Inicio de sesión', { capture: 'runner' });
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
-        cy.wait(3000)
+        cy.wait(4000)
         cy.contains('button', 'Ingresar').click();
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard')
     })
