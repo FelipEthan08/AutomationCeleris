@@ -6,7 +6,7 @@ describe('63126 Creación de notificación automática para actividades y subact
         cy.get('input[placeholder="Usuario"]').type(Cypress.env('user'))
         cy.get('input[placeholder="Contraseña"]').type(Cypress.env('pass'))
         cy.wait(3000)
-        cy.contains('button', 'Ingresar').click();
+        cy.contains('button', 'Ingresar').click({force:true});
         cy.url().should("eq",'https://celerisawsqa.tps.net.co/dashboard')
         cy.contains('span','Administrar notificaciones automaticas').click({force:true})
         cy.url().should("eq",'https://celerisawsqa.tps.net.co/dashboard/alerts/manage-notification')

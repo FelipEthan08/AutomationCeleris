@@ -9,7 +9,7 @@ describe('58361 Administrar Pregunta por actividad o subactividad', () => {
         cy.contains('button', 'Ingresar').click();
         cy.screenshot('Paso 1 Login exitoso', { capture: 'runner' });
         cy.url().should('eq','https://celerisawsqa.tps.net.co/dashboard')
-        cy.contains('Administrar Pregunta por Actividad').click()
+        cy.contains('Administrar Pregunta por Actividad').click({force:true})
         cy.url().should('eq', 'https://celerisawsqa.tps.net.co/dashboard/parameterization/manage-questions');
     })
     it('CP01_Validar estructura de la pantalla', () => {
