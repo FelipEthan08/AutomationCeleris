@@ -38,7 +38,6 @@ describe('58140 Modificación de envío de alertas o notificación', ()=> {
         cy.get('aside.bg-ocean-footer').invoke('css', 'display', 'none')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(10).should('be.visible')
         cy.get('.bg-white.block.border.border-gray-300.cursor-pointer.duration-300').eq(11).should('be.visible')
-
         cy.get('.bg-white.block.min-w-full.overflow-x-hidden.px-4').last().should('be.visible')
         cy.get('input[placeholder="Escribe su mensaje..."]').last().should('be.visible')
         cy.get('input[type="date"]').eq(3).should('be.visible')
